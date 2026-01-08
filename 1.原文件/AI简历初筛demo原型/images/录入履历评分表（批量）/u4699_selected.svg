@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="14px" height="14px" viewBox="416 425  14 14" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <image preserveAspectRatio="none" style="overflow:visible" width="14" height="14" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEzSURBVDhPY9y/fz9L7VlFjxcscsYMRACJP4/OHilR2MJo2fPE5w2L9GaoOFFA/M9TX6bXLFJE2YQMXgD1MEHZeAEzUFWXGwODgyJUAAgIamQBqujzYGAI0GRgCNOGCgIBXCMnKwODrjiUAwUgTRM8GRg8VRkYDj5gYCjYDpUAArjGSV4MDEtCGBgsZCB8VmaImJsKA8MhoKbsLQwMv/5C5EAArnHaKQaGv/8YGOYGQGyY6cfA4KLMwLD7LgNDBjDMkTWBAFzj+ecMDMkbGBh+AhVMBNpkI8fAsAeoKX8bA8MfoIHoAK4RBECa87ZCTAc5rxDoJ2yaQABFIwgcecTAELMG4ieQ7bgAhkYQuPACvyYQYBL98/IslE00EP3z7Cw4kVed1fB4zSJOVNIDWXS8RHILAOFoWhIWEiEqAAAAAElFTkSuQmCC" id="widget131" />
+  </defs>
+  <use xlink:href="#widget131" x="416px" y="425px" />
+  <path d="M 416.5 427  A 1.5 1.5 0 0 1 418 425.5 L 428 425.5  A 1.5 1.5 0 0 1 429.5 427 L 429.5 437  A 1.5 1.5 0 0 1 428 438.5 L 418 438.5  A 1.5 1.5 0 0 1 416.5 437 L 416.5 427  Z " stroke-width="1" stroke="#d5e1f7" fill="none" />
+</svg>

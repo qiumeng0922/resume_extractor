@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>待处理简历列表</title>
+  <!-- 引入Bootstrap样式 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .ml-2 { margin-left: 10px; }
+    .mb-3 { margin-bottom: 15px; }
+    /* 剪贴板提示框样式 */
+    #clipboardTip {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #333;
+      color: #fff;
+      padding: 20px 30px;
+      border-radius: 6px;
+      display: none;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" style="margin-top: 20px;">
+    <!-- 页面标题 -->
+    <h3 class="page-header">
+      <span class="glyphicon glyphicon-list-alt"></span> 待处理简历列表
+    </h3>
+
+    <!-- 筛选区域 -->
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="positionSelect" class="control-label">岗位：</label>
+          <select id="positionSelect" class="form-control">
+            <option>需求分析师</option>
+            <option>软件开发工程师</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="aiStatusSelect" class="control-label">AI初筛状态：</label>
+          <select id="aiStatusSelect" class="form-control">
+            <option>拟通过</option>
+            <option>拟淘汰</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="candidateInput" class="control-label">候选人信息：</label>
+          <input type="text" id="candidateInput" class="form-control" placeholder="输入姓名/学校/现任公司">
+        </div>
+      </div>
+      <div class="col-md-2" style="padding-top: 25px;">
+        <button id="queryBtn" class="btn btn-primary">
+          <span class="glyphicon glyphicon-search"></span> 查询
+        </button>
+      </div>
+    </div>
+
+    <!-- 功能按钮区域 -->
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <button id="exportBtn" class="btn btn-default">
+          <span class="glyphicon glyphicon-download-alt"></span> 导出
+        </button>
+      </div>
+      <div class="col-md-2">
+        <button id="confirmAllBtn" class="btn btn-primary">一键全部确认</button>
+      </div>
+    </div>
+
+    <!-- 简历表格 -->
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-bordered table-striped table-hover">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>姓名</th>
+              <th>关键画像</th>
+              <th>应聘岗位</th>
+              <th>AI初筛结果</th>
+              <th>淘汰原因</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>李文军</td>
+              <td>硕士 | 武汉大学 | 32岁<br>现任：华为技术有限公司</td>
+              <td>软件开发工程师</td>
+              <td><span class="text-success">拟通过</span></td>
+              <td></td>
+              <td>
+                <a href="#" class="text-primary">简历详情</a>
+                <a href="#" class="text-primary ml-2">通过</a>
+                <a href="#" class="text-primary ml-2">淘汰</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>王三金</td>
+              <td>本科 | 华南理工大学 | 31岁<br>现任：网易技术有限公司</td>
+              <td>软件开发工程师</td>
+              <td><span class="text-success">拟通过</span></td>
+              <td></td>
+              <td>
+                <a href="#" class="text-primary">简历详情</a>
+                <a href="#" class="text-primary ml-2">通过</a>
+                <a href="#" class="text-primary ml-2">淘汰</a>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>张少年</td>
+              <td>硕士 | 广东工业大学 | 39岁<br>现任：科大讯飞技术有限公司</td>
+              <td>需求分析师</td>
+              <td><span class="text-success">拟通过</span></td>
+              <td></td>
+              <td>
+                <a href="#" class="text-primary">简历详情</a>
+                <a href="#" class="text-primary ml-2">通过</a>
+                <a href="#" class="text-primary ml-2">淘汰</a>
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>商吴鞅</td>
+              <td>博士 | 清华大学 | 38岁<br>现任：中国工商银行</td>
+              <td>需求分析师</td>
+              <td><span class="text-danger">拟淘汰</span></td>
+              <td>亲属回避未通过</td>
+              <td>
+                <a href="#" class="text-primary">简历详情</a>
+                <a href="#" class="text-primary ml-2">通过</a>
+                <a href="#" class="text-primary ml-2">淘汰</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 分页区域 -->
+    <div class="row">
+      <div class="col-md-6">
+        <p>共108条记录 每页显示：
+          <button class="btn btn-sm btn-default">2</button>
+          <button class="btn btn-sm btn-primary">5</button>
+          <button class="btn btn-sm btn-default">100</button>
+        </p>
+      </div>
+      <div class="col-md-6 text-right">
+        <nav aria-label="Page navigation">
+          <ul class="pagination pagination-sm">
+            <li>
+              <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+              <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+            <li class="ml-2" style="display: flex; align-items: center;">
+              <span>跳转</span>
+              <input type="text" class="form-control form-control-sm" style="width: 60px; margin: 0 5px;" placeholder="页">
+              <button class="btn btn-sm btn-default">确定</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- 剪贴板提示框 -->
+    <div id="clipboardTip">
+      <span class="glyphicon glyphicon-ok"></span> 已添加到剪贴板
+    </div>
+  </div>
+
+  <!-- 引入jQuery和Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+  <script>
+    // 一键全部确认 - 显示提示框
+    $('#confirmAllBtn').click(function() {
+      $('#clipboardTip').fadeIn();
+      setTimeout(() => {
+        $('#clipboardTip').fadeOut();
+      }, 3000);
+    });
+
+    // 查询按钮示例交互
+    $('#queryBtn').click(function() {
+      const position = $('#positionSelect').val();
+      const aiStatus = $('#aiStatusSelect').val();
+      const candidate = $('#candidateInput').val();
+      alert(`查询条件：\n岗位=${position}\nAI初筛状态=${aiStatus}\n候选人信息=${candidate}`);
+    });
+
+    // 分页按钮示例交互
+    $('.pagination li a').click(function(e) {
+      e.preventDefault();
+      const page = $(this).text();
+      if (page !== '«' && page !== '»') {
+        alert(`切换到第${page}页`);
+      }
+    });
+  </script>
+</body>
+</html>

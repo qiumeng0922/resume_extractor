@@ -1,0 +1,4074 @@
+{
+    "analysis": {
+        "file_name": "副本（现RPA小工具流程）简历导入多行表.xlsx",
+        "file_path": "副本（现RPA小工具流程）简历导入多行表.xlsx",
+        "analysis_time": "2026-01-05 09:44:37",
+        "total_sheets": 1,
+        "sheets": {
+            "Excel简历": {
+                "sheet_name": "Excel简历",
+                "has_merged_cells": true,
+                "total_merged_regions": 238,
+                "merged_regions": [
+                    {
+                        "id": 1,
+                        "range": "W22:W26",
+                        "readable_range": "W22:W26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 23,
+                            "end_col": 23,
+                            "start_col_letter": "W",
+                            "end_col_letter": "W"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "否"
+                    },
+                    {
+                        "id": 2,
+                        "range": "A8:A21",
+                        "readable_range": "A8:A21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 1,
+                            "end_col": 1,
+                            "start_col_letter": "A",
+                            "end_col_letter": "A"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "2"
+                    },
+                    {
+                        "id": 3,
+                        "range": "BA3:BA7",
+                        "readable_range": "BA3:BA7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 53,
+                            "end_col": 53,
+                            "start_col_letter": "BA",
+                            "end_col_letter": "BA"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "自动化(大学本科)"
+                    },
+                    {
+                        "id": 4,
+                        "range": "H22:H26",
+                        "readable_range": "H22:H26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 8,
+                            "end_col": 8,
+                            "start_col_letter": "H",
+                            "end_col_letter": "H"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 5,
+                        "range": "C8:C21",
+                        "readable_range": "C8:C21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 3,
+                            "end_col": 3,
+                            "start_col_letter": "C",
+                            "end_col_letter": "C"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "政策研究部"
+                    },
+                    {
+                        "id": 6,
+                        "range": "BY22:BY26",
+                        "readable_range": "BY22:BY26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 77,
+                            "end_col": 77,
+                            "start_col_letter": "BY",
+                            "end_col_letter": "BY"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "5.22"
+                    },
+                    {
+                        "id": 7,
+                        "range": "D3:D7",
+                        "readable_range": "D3:D7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 4,
+                            "end_col": 4,
+                            "start_col_letter": "D",
+                            "end_col_letter": "D"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "审计管理主管"
+                    },
+                    {
+                        "id": 8,
+                        "range": "U8:U21",
+                        "readable_range": "U8:U21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 21,
+                            "end_col": 21,
+                            "start_col_letter": "U",
+                            "end_col_letter": "U"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "2010-11-15 00:00:00"
+                    },
+                    {
+                        "id": 9,
+                        "range": "DG22:DG26",
+                        "readable_range": "DG22:DG26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 111,
+                            "end_col": 111,
+                            "start_col_letter": "DG",
+                            "end_col_letter": "DG"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 10,
+                        "range": "DI22:DI26",
+                        "readable_range": "DI22:DI26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 113,
+                            "end_col": 113,
+                            "start_col_letter": "DI",
+                            "end_col_letter": "DI"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 11,
+                        "range": "M8:M21",
+                        "readable_range": "M8:M21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 13,
+                            "end_col": 13,
+                            "start_col_letter": "M",
+                            "end_col_letter": "M"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 12,
+                        "range": "W8:W21",
+                        "readable_range": "W8:W21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 23,
+                            "end_col": 23,
+                            "start_col_letter": "W",
+                            "end_col_letter": "W"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "否"
+                    },
+                    {
+                        "id": 13,
+                        "range": "DE3:DE7",
+                        "readable_range": "DE3:DE7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 109,
+                            "end_col": 109,
+                            "start_col_letter": "DE",
+                            "end_col_letter": "DE"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "政工师"
+                    },
+                    {
+                        "id": 14,
+                        "range": "O8:O21",
+                        "readable_range": "O8:O21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 15,
+                            "end_col": 15,
+                            "start_col_letter": "O",
+                            "end_col_letter": "O"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 15,
+                        "range": "BW8:BW21",
+                        "readable_range": "BW8:BW21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 75,
+                            "end_col": 75,
+                            "start_col_letter": "BW",
+                            "end_col_letter": "BW"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 16,
+                        "range": "P3:P7",
+                        "readable_range": "P3:P7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 16,
+                            "end_col": 16,
+                            "start_col_letter": "P",
+                            "end_col_letter": "P"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 17,
+                        "range": "CV1:CX1",
+                        "readable_range": "CV1:CX1",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 1,
+                            "start_col": 100,
+                            "end_col": 102,
+                            "start_col_letter": "CV",
+                            "end_col_letter": "CX"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 1,
+                        "cols_merged": 3,
+                        "cell_value": "其他证书"
+                    },
+                    {
+                        "id": 18,
+                        "range": "Q22:Q26",
+                        "readable_range": "Q22:Q26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 17,
+                            "end_col": 17,
+                            "start_col_letter": "Q",
+                            "end_col_letter": "Q"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "安全生产平台产品部"
+                    },
+                    {
+                        "id": 19,
+                        "range": "R3:R7",
+                        "readable_range": "R3:R7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 18,
+                            "end_col": 18,
+                            "start_col_letter": "R",
+                            "end_col_letter": "R"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "后勤服务专责B"
+                    },
+                    {
+                        "id": 20,
+                        "range": "AX3:AX7",
+                        "readable_range": "AX3:AX7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 50,
+                            "end_col": 50,
+                            "start_col_letter": "AX",
+                            "end_col_letter": "AX"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "2008-06-25 00:00:00"
+                    },
+                    {
+                        "id": 21,
+                        "range": "AZ3:AZ7",
+                        "readable_range": "AZ3:AZ7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 52,
+                            "end_col": 52,
+                            "start_col_letter": "AZ",
+                            "end_col_letter": "AZ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "北京理工大学(大学本科)"
+                    },
+                    {
+                        "id": 22,
+                        "range": "BQ8:BQ21",
+                        "readable_range": "BQ8:BQ21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 69,
+                            "end_col": 69,
+                            "start_col_letter": "BQ",
+                            "end_col_letter": "BQ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "校园招聘"
+                    },
+                    {
+                        "id": 23,
+                        "range": "DQ3:DQ7",
+                        "readable_range": "DQ3:DQ7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 121,
+                            "end_col": 121,
+                            "start_col_letter": "DQ",
+                            "end_col_letter": "DQ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "无"
+                    },
+                    {
+                        "id": 24,
+                        "range": "DS3:DS7",
+                        "readable_range": "DS3:DS7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 123,
+                            "end_col": 123,
+                            "start_col_letter": "DS",
+                            "end_col_letter": "DS"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "B"
+                    },
+                    {
+                        "id": 25,
+                        "range": "DS8:DS21",
+                        "readable_range": "DS8:DS21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 123,
+                            "end_col": 123,
+                            "start_col_letter": "DS",
+                            "end_col_letter": "DS"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "A"
+                    },
+                    {
+                        "id": 26,
+                        "range": "AM1:BA1",
+                        "readable_range": "AM1:BA1",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 1,
+                            "start_col": 39,
+                            "end_col": 53,
+                            "start_col_letter": "AM",
+                            "end_col_letter": "BA"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 1,
+                        "cols_merged": 15,
+                        "cell_value": "学习经历统计信息"
+                    },
+                    {
+                        "id": 27,
+                        "range": "CC22:CC26",
+                        "readable_range": "CC22:CC26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 81,
+                            "end_col": 81,
+                            "start_col_letter": "CC",
+                            "end_col_letter": "CC"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 28,
+                        "range": "AW22:AW26",
+                        "readable_range": "AW22:AW26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 49,
+                            "end_col": 49,
+                            "start_col_letter": "AW",
+                            "end_col_letter": "AW"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "机电一体化工程"
+                    },
+                    {
+                        "id": 29,
+                        "range": "CE22:CE26",
+                        "readable_range": "CE22:CE26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 83,
+                            "end_col": 83,
+                            "start_col_letter": "CE",
+                            "end_col_letter": "CE"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 30,
+                        "range": "AO22:AO26",
+                        "readable_range": "AO22:AO26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 41,
+                            "end_col": 41,
+                            "start_col_letter": "AO",
+                            "end_col_letter": "AO"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 31,
+                        "range": "T3:T7",
+                        "readable_range": "T3:T7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 20,
+                            "end_col": 20,
+                            "start_col_letter": "T",
+                            "end_col_letter": "T"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "审计业务序列（无相关工作经历）"
+                    },
+                    {
+                        "id": 32,
+                        "range": "V3:V7",
+                        "readable_range": "V3:V7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 22,
+                            "end_col": 22,
+                            "start_col_letter": "V",
+                            "end_col_letter": "V"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 33,
+                        "range": "AM8:AM21",
+                        "readable_range": "AM8:AM21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 39,
+                            "end_col": 39,
+                            "start_col_letter": "AM",
+                            "end_col_letter": "AM"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "博士研究生"
+                    },
+                    {
+                        "id": 34,
+                        "range": "AO8:AO21",
+                        "readable_range": "AO8:AO21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 41,
+                            "end_col": 41,
+                            "start_col_letter": "AO",
+                            "end_col_letter": "AO"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "华南理工大学"
+                    },
+                    {
+                        "id": 35,
+                        "range": "E1:X1",
+                        "readable_range": "E1:X1",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 1,
+                            "start_col": 5,
+                            "end_col": 24,
+                            "start_col_letter": "E",
+                            "end_col_letter": "X"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 1,
+                        "cols_merged": 20,
+                        "cell_value": "基本信息"
+                    },
+                    {
+                        "id": 36,
+                        "range": "AR22:AR26",
+                        "readable_range": "AR22:AR26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 44,
+                            "end_col": 44,
+                            "start_col_letter": "AR",
+                            "end_col_letter": "AR"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 37,
+                        "range": "AT22:AT26",
+                        "readable_range": "AT22:AT26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 46,
+                            "end_col": 46,
+                            "start_col_letter": "AT",
+                            "end_col_letter": "AT"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "无学位"
+                    },
+                    {
+                        "id": 38,
+                        "range": "X8:X21",
+                        "readable_range": "X8:X21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 24,
+                            "end_col": 24,
+                            "start_col_letter": "X",
+                            "end_col_letter": "X"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "满足"
+                    },
+                    {
+                        "id": 39,
+                        "range": "BX3:BX7",
+                        "readable_range": "BX3:BX7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 76,
+                            "end_col": 76,
+                            "start_col_letter": "BX",
+                            "end_col_letter": "BX"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 40,
+                        "range": "DQ22:DQ26",
+                        "readable_range": "DQ22:DQ26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 121,
+                            "end_col": 121,
+                            "start_col_letter": "DQ",
+                            "end_col_letter": "DQ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "无"
+                    },
+                    {
+                        "id": 41,
+                        "range": "AP8:AP21",
+                        "readable_range": "AP8:AP21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 42,
+                            "end_col": 42,
+                            "start_col_letter": "AP",
+                            "end_col_letter": "AP"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "985院校"
+                    },
+                    {
+                        "id": 42,
+                        "range": "AR8:AR21",
+                        "readable_range": "AR8:AR21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 44,
+                            "end_col": 44,
+                            "start_col_letter": "AR",
+                            "end_col_letter": "AR"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "2013-06-23 00:00:00"
+                    },
+                    {
+                        "id": 43,
+                        "range": "B22:B26",
+                        "readable_range": "B22:B26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 2,
+                            "end_col": 2,
+                            "start_col_letter": "B",
+                            "end_col_letter": "B"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "中国南方电网有限责任公司北京分公司"
+                    },
+                    {
+                        "id": 44,
+                        "range": "A1:A2",
+                        "readable_range": "A1:A2",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 2,
+                            "start_col": 1,
+                            "end_col": 1,
+                            "start_col_letter": "A",
+                            "end_col_letter": "A"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 2,
+                        "cols_merged": 1,
+                        "cell_value": "序号"
+                    },
+                    {
+                        "id": 45,
+                        "range": "DD3:DD7",
+                        "readable_range": "DD3:DD7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 108,
+                            "end_col": 108,
+                            "start_col_letter": "DD",
+                            "end_col_letter": "DD"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "中级"
+                    },
+                    {
+                        "id": 46,
+                        "range": "N22:N26",
+                        "readable_range": "N22:N26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 14,
+                            "end_col": 14,
+                            "start_col_letter": "N",
+                            "end_col_letter": "N"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 47,
+                        "range": "BP1:CF1",
+                        "readable_range": "BP1:CF1",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 1,
+                            "start_col": 68,
+                            "end_col": 84,
+                            "start_col_letter": "BP",
+                            "end_col_letter": "CF"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 1,
+                        "cols_merged": 17,
+                        "cell_value": "工作经历统计信息"
+                    },
+                    {
+                        "id": 48,
+                        "range": "CY1:DC1",
+                        "readable_range": "CY1:DC1",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 1,
+                            "start_col": 103,
+                            "end_col": 107,
+                            "start_col_letter": "CY",
+                            "end_col_letter": "DC"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 1,
+                        "cols_merged": 5,
+                        "cell_value": "个人荣誉"
+                    },
+                    {
+                        "id": 49,
+                        "range": "DR1:DY1",
+                        "readable_range": "DR1:DY1",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 1,
+                            "start_col": 122,
+                            "end_col": 129,
+                            "start_col_letter": "DR",
+                            "end_col_letter": "DY"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 1,
+                        "cols_merged": 8,
+                        "cell_value": "年度绩效情况"
+                    },
+                    {
+                        "id": 50,
+                        "range": "P22:P26",
+                        "readable_range": "P22:P26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 16,
+                            "end_col": 16,
+                            "start_col_letter": "P",
+                            "end_col_letter": "P"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 51,
+                        "range": "AV22:AV26",
+                        "readable_range": "AV22:AV26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 48,
+                            "end_col": 48,
+                            "start_col_letter": "AV",
+                            "end_col_letter": "AV"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "985院校"
+                    },
+                    {
+                        "id": 52,
+                        "range": "AT3:AT7",
+                        "readable_range": "AT3:AT7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 46,
+                            "end_col": 46,
+                            "start_col_letter": "AT",
+                            "end_col_letter": "AT"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "工学学士学位"
+                    },
+                    {
+                        "id": 53,
+                        "range": "AW3:AW7",
+                        "readable_range": "AW3:AW7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 49,
+                            "end_col": 49,
+                            "start_col_letter": "AW",
+                            "end_col_letter": "AW"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "自动化"
+                    },
+                    {
+                        "id": 54,
+                        "range": "AX22:AX26",
+                        "readable_range": "AX22:AX26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 50,
+                            "end_col": 50,
+                            "start_col_letter": "AX",
+                            "end_col_letter": "AX"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "2016-06-30 00:00:00"
+                    },
+                    {
+                        "id": 55,
+                        "range": "BP22:BP26",
+                        "readable_range": "BP22:BP26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 68,
+                            "end_col": 68,
+                            "start_col_letter": "BP",
+                            "end_col_letter": "BP"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "2018-09-20 00:00:00"
+                    },
+                    {
+                        "id": 56,
+                        "range": "BR22:BR26",
+                        "readable_range": "BR22:BR26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 70,
+                            "end_col": 70,
+                            "start_col_letter": "BR",
+                            "end_col_letter": "BR"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "6.88"
+                    },
+                    {
+                        "id": 57,
+                        "range": "DD8:DD21",
+                        "readable_range": "DD8:DD21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 108,
+                            "end_col": 108,
+                            "start_col_letter": "DD",
+                            "end_col_letter": "DD"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "副高级"
+                    },
+                    {
+                        "id": 58,
+                        "range": "DR22:DR26",
+                        "readable_range": "DR22:DR26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 122,
+                            "end_col": 122,
+                            "start_col_letter": "DR",
+                            "end_col_letter": "DR"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "未入职"
+                    },
+                    {
+                        "id": 59,
+                        "range": "F8:F21",
+                        "readable_range": "F8:F21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 6,
+                            "end_col": 6,
+                            "start_col_letter": "F",
+                            "end_col_letter": "F"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 60,
+                        "range": "CB22:CB26",
+                        "readable_range": "CB22:CB26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 80,
+                            "end_col": 80,
+                            "start_col_letter": "CB",
+                            "end_col_letter": "CB"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 61,
+                        "range": "G3:G7",
+                        "readable_range": "G3:G7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 7,
+                            "end_col": 7,
+                            "start_col_letter": "G",
+                            "end_col_letter": "G"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 62,
+                        "range": "M22:M26",
+                        "readable_range": "M22:M26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 13,
+                            "end_col": 13,
+                            "start_col_letter": "M",
+                            "end_col_letter": "M"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 63,
+                        "range": "CD22:CD26",
+                        "readable_range": "CD22:CD26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 82,
+                            "end_col": 82,
+                            "start_col_letter": "CD",
+                            "end_col_letter": "CD"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 64,
+                        "range": "I3:I7",
+                        "readable_range": "I3:I7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 9,
+                            "end_col": 9,
+                            "start_col_letter": "I",
+                            "end_col_letter": "I"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "汉族"
+                    },
+                    {
+                        "id": 65,
+                        "range": "BZ3:BZ7",
+                        "readable_range": "BZ3:BZ7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 78,
+                            "end_col": 78,
+                            "start_col_letter": "BZ",
+                            "end_col_letter": "BZ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "4.82"
+                    },
+                    {
+                        "id": 66,
+                        "range": "A3:A7",
+                        "readable_range": "A3:A7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 1,
+                            "end_col": 1,
+                            "start_col_letter": "A",
+                            "end_col_letter": "A"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "1"
+                    },
+                    {
+                        "id": 67,
+                        "range": "CF22:CF26",
+                        "readable_range": "CF22:CF26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 84,
+                            "end_col": 84,
+                            "start_col_letter": "CF",
+                            "end_col_letter": "CF"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 68,
+                        "range": "DH3:DH7",
+                        "readable_range": "DH3:DH7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 112,
+                            "end_col": 112,
+                            "start_col_letter": "DH",
+                            "end_col_letter": "DH"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 69,
+                        "range": "DY8:DY21",
+                        "readable_range": "DY8:DY21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 129,
+                            "end_col": 129,
+                            "start_col_letter": "DY",
+                            "end_col_letter": "DY"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "2"
+                    },
+                    {
+                        "id": 70,
+                        "range": "CB8:CB21",
+                        "readable_range": "CB8:CB21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 80,
+                            "end_col": 80,
+                            "start_col_letter": "CB",
+                            "end_col_letter": "CB"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 71,
+                        "range": "U3:U7",
+                        "readable_range": "U3:U7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 21,
+                            "end_col": 21,
+                            "start_col_letter": "U",
+                            "end_col_letter": "U"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "2010-01-01 00:00:00"
+                    },
+                    {
+                        "id": 72,
+                        "range": "CD8:CD21",
+                        "readable_range": "CD8:CD21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 82,
+                            "end_col": 82,
+                            "start_col_letter": "CD",
+                            "end_col_letter": "CD"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 73,
+                        "range": "BT8:BT21",
+                        "readable_range": "BT8:BT21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 72,
+                            "end_col": 72,
+                            "start_col_letter": "BT",
+                            "end_col_letter": "BT"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "1.03"
+                    },
+                    {
+                        "id": 74,
+                        "range": "DT3:DT7",
+                        "readable_range": "DT3:DT7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 124,
+                            "end_col": 124,
+                            "start_col_letter": "DT",
+                            "end_col_letter": "DT"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "A"
+                    },
+                    {
+                        "id": 75,
+                        "range": "BV22:BV26",
+                        "readable_range": "BV22:BV26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 74,
+                            "end_col": 74,
+                            "start_col_letter": "BV",
+                            "end_col_letter": "BV"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 76,
+                        "range": "BV8:BV21",
+                        "readable_range": "BV8:BV21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 74,
+                            "end_col": 74,
+                            "start_col_letter": "BV",
+                            "end_col_letter": "BV"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 77,
+                        "range": "BW3:BW7",
+                        "readable_range": "BW3:BW7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 75,
+                            "end_col": 75,
+                            "start_col_letter": "BW",
+                            "end_col_letter": "BW"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 78,
+                        "range": "DV3:DV7",
+                        "readable_range": "DV3:DV7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 126,
+                            "end_col": 126,
+                            "start_col_letter": "DV",
+                            "end_col_letter": "DV"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "A"
+                    },
+                    {
+                        "id": 79,
+                        "range": "DX8:DX21",
+                        "readable_range": "DX8:DX21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 128,
+                            "end_col": 128,
+                            "start_col_letter": "DX",
+                            "end_col_letter": "DX"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "0"
+                    },
+                    {
+                        "id": 80,
+                        "range": "AZ22:AZ26",
+                        "readable_range": "AZ22:AZ26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 52,
+                            "end_col": 52,
+                            "start_col_letter": "AZ",
+                            "end_col_letter": "AZ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "山东大学(在职大学本科)"
+                    },
+                    {
+                        "id": 81,
+                        "range": "I8:I21",
+                        "readable_range": "I8:I21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 9,
+                            "end_col": 9,
+                            "start_col_letter": "I",
+                            "end_col_letter": "I"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "汉族"
+                    },
+                    {
+                        "id": 82,
+                        "range": "CP1:CR1",
+                        "readable_range": "CP1:CR1",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 1,
+                            "start_col": 94,
+                            "end_col": 96,
+                            "start_col_letter": "CP",
+                            "end_col_letter": "CR"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 1,
+                        "cols_merged": 3,
+                        "cell_value": "职业资格证书"
+                    },
+                    {
+                        "id": 83,
+                        "range": "K8:K21",
+                        "readable_range": "K8:K21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 11,
+                            "end_col": 11,
+                            "start_col_letter": "K",
+                            "end_col_letter": "K"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 84,
+                        "range": "DD22:DD26",
+                        "readable_range": "DD22:DD26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 108,
+                            "end_col": 108,
+                            "start_col_letter": "DD",
+                            "end_col_letter": "DD"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 85,
+                        "range": "DZ1:DZ2",
+                        "readable_range": "DZ1:DZ2",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 2,
+                            "start_col": 130,
+                            "end_col": 130,
+                            "start_col_letter": "DZ",
+                            "end_col_letter": "DZ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 2,
+                        "cols_merged": 1,
+                        "cell_value": "近三年主要工作业绩与成果"
+                    },
+                    {
+                        "id": 86,
+                        "range": "CC3:CC7",
+                        "readable_range": "CC3:CC7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 81,
+                            "end_col": 81,
+                            "start_col_letter": "CC",
+                            "end_col_letter": "CC"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 87,
+                        "range": "A22:A26",
+                        "readable_range": "A22:A26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 1,
+                            "end_col": 1,
+                            "start_col_letter": "A",
+                            "end_col_letter": "A"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "3"
+                    },
+                    {
+                        "id": 88,
+                        "range": "CL1:CO1",
+                        "readable_range": "CL1:CO1",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 1,
+                            "start_col": 90,
+                            "end_col": 93,
+                            "start_col_letter": "CL",
+                            "end_col_letter": "CO"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 1,
+                        "cols_merged": 4,
+                        "cell_value": "职称证书"
+                    },
+                    {
+                        "id": 89,
+                        "range": "CF8:CF21",
+                        "readable_range": "CF8:CF21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 84,
+                            "end_col": 84,
+                            "start_col_letter": "CF",
+                            "end_col_letter": "CF"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 90,
+                        "range": "AU22:AU26",
+                        "readable_range": "AU22:AU26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 47,
+                            "end_col": 47,
+                            "start_col_letter": "AU",
+                            "end_col_letter": "AU"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "山东大学"
+                    },
+                    {
+                        "id": 91,
+                        "range": "CA3:CA7",
+                        "readable_range": "CA3:CA7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 79,
+                            "end_col": 79,
+                            "start_col_letter": "CA",
+                            "end_col_letter": "CA"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "10.79"
+                    },
+                    {
+                        "id": 92,
+                        "range": "DT22:DT26",
+                        "readable_range": "DT22:DT26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 124,
+                            "end_col": 124,
+                            "start_col_letter": "DT",
+                            "end_col_letter": "DT"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "系统无记录"
+                    },
+                    {
+                        "id": 93,
+                        "range": "AU8:AU21",
+                        "readable_range": "AU8:AU21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 47,
+                            "end_col": 47,
+                            "start_col_letter": "AU",
+                            "end_col_letter": "AU"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "华南理工大学"
+                    },
+                    {
+                        "id": 94,
+                        "range": "E22:E26",
+                        "readable_range": "E22:E26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 5,
+                            "end_col": 5,
+                            "start_col_letter": "E",
+                            "end_col_letter": "E"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 95,
+                        "range": "AW8:AW21",
+                        "readable_range": "AW8:AW21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 49,
+                            "end_col": 49,
+                            "start_col_letter": "AW",
+                            "end_col_letter": "AW"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "电力系统及其自动化"
+                    },
+                    {
+                        "id": 96,
+                        "range": "AN3:AN7",
+                        "readable_range": "AN3:AN7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 40,
+                            "end_col": 40,
+                            "start_col_letter": "AN",
+                            "end_col_letter": "AN"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "工学学士学位"
+                    },
+                    {
+                        "id": 97,
+                        "range": "G22:G26",
+                        "readable_range": "G22:G26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 7,
+                            "end_col": 7,
+                            "start_col_letter": "G",
+                            "end_col_letter": "G"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 98,
+                        "range": "AP3:AP7",
+                        "readable_range": "AP3:AP7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 42,
+                            "end_col": 42,
+                            "start_col_letter": "AP",
+                            "end_col_letter": "AP"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "985院校"
+                    },
+                    {
+                        "id": 99,
+                        "range": "DG3:DG7",
+                        "readable_range": "DG3:DG7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 111,
+                            "end_col": 111,
+                            "start_col_letter": "DG",
+                            "end_col_letter": "DG"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 100,
+                        "range": "AR3:AR7",
+                        "readable_range": "AR3:AR7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 44,
+                            "end_col": 44,
+                            "start_col_letter": "AR",
+                            "end_col_letter": "AR"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "2008-06-25 00:00:00"
+                    },
+                    {
+                        "id": 101,
+                        "range": "S22:S26",
+                        "readable_range": "S22:S26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 19,
+                            "end_col": 19,
+                            "start_col_letter": "S",
+                            "end_col_letter": "S"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "其他"
+                    },
+                    {
+                        "id": 102,
+                        "range": "DI8:DI21",
+                        "readable_range": "DI8:DI21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 113,
+                            "end_col": 113,
+                            "start_col_letter": "DI",
+                            "end_col_letter": "DI"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "最美家庭（脱贫攻坚）"
+                    },
+                    {
+                        "id": 103,
+                        "range": "D22:D26",
+                        "readable_range": "D22:D26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 4,
+                            "end_col": 4,
+                            "start_col_letter": "D",
+                            "end_col_letter": "D"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "软件开发工程师"
+                    },
+                    {
+                        "id": 104,
+                        "range": "DF8:DF21",
+                        "readable_range": "DF8:DF21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 110,
+                            "end_col": 110,
+                            "start_col_letter": "DF",
+                            "end_col_letter": "DF"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 105,
+                        "range": "AY3:AY7",
+                        "readable_range": "AY3:AY7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 51,
+                            "end_col": 51,
+                            "start_col_letter": "AY",
+                            "end_col_letter": "AY"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "全日制大学本科"
+                    },
+                    {
+                        "id": 106,
+                        "range": "BU22:BU26",
+                        "readable_range": "BU22:BU26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 73,
+                            "end_col": 73,
+                            "start_col_letter": "BU",
+                            "end_col_letter": "BU"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "5.22"
+                    },
+                    {
+                        "id": 107,
+                        "range": "Q8:Q21",
+                        "readable_range": "Q8:Q21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 17,
+                            "end_col": 17,
+                            "start_col_letter": "Q",
+                            "end_col_letter": "Q"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "生产技术部（迁改办）变电管理团队"
+                    },
+                    {
+                        "id": 108,
+                        "range": "AY8:AY21",
+                        "readable_range": "AY8:AY21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 51,
+                            "end_col": 51,
+                            "start_col_letter": "AY",
+                            "end_col_letter": "AY"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "全日制博士研究生"
+                    },
+                    {
+                        "id": 109,
+                        "range": "BW22:BW26",
+                        "readable_range": "BW22:BW26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 75,
+                            "end_col": 75,
+                            "start_col_letter": "BW",
+                            "end_col_letter": "BW"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 110,
+                        "range": "S8:S21",
+                        "readable_range": "S8:S21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 19,
+                            "end_col": 19,
+                            "start_col_letter": "S",
+                            "end_col_letter": "S"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "其他"
+                    },
+                    {
+                        "id": 111,
+                        "range": "BA8:BA21",
+                        "readable_range": "BA8:BA21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 53,
+                            "end_col": 53,
+                            "start_col_letter": "BA",
+                            "end_col_letter": "BA"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "电力系统及其自动化(博士研究生)\r\n电气工程及其自动化(硕士研究生)\r\n电气工程及其自动化(大学本科)"
+                    },
+                    {
+                        "id": 112,
+                        "range": "DE22:DE26",
+                        "readable_range": "DE22:DE26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 109,
+                            "end_col": 109,
+                            "start_col_letter": "DE",
+                            "end_col_letter": "DE"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 113,
+                        "range": "DR8:DR21",
+                        "readable_range": "DR8:DR21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 122,
+                            "end_col": 122,
+                            "start_col_letter": "DR",
+                            "end_col_letter": "DR"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "A"
+                    },
+                    {
+                        "id": 114,
+                        "range": "DW22:DW26",
+                        "readable_range": "DW22:DW26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 127,
+                            "end_col": 127,
+                            "start_col_letter": "DW",
+                            "end_col_letter": "DW"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "B"
+                    },
+                    {
+                        "id": 115,
+                        "range": "L3:L7",
+                        "readable_range": "L3:L7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 12,
+                            "end_col": 12,
+                            "start_col_letter": "L",
+                            "end_col_letter": "L"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "群众"
+                    },
+                    {
+                        "id": 116,
+                        "range": "DT8:DT21",
+                        "readable_range": "DT8:DT21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 124,
+                            "end_col": 124,
+                            "start_col_letter": "DT",
+                            "end_col_letter": "DT"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "B"
+                    },
+                    {
+                        "id": 117,
+                        "range": "DY22:DY26",
+                        "readable_range": "DY22:DY26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 129,
+                            "end_col": 129,
+                            "start_col_letter": "DY",
+                            "end_col_letter": "DY"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "0"
+                    },
+                    {
+                        "id": 118,
+                        "range": "N3:N7",
+                        "readable_range": "N3:N7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 14,
+                            "end_col": 14,
+                            "start_col_letter": "N",
+                            "end_col_letter": "N"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 119,
+                        "range": "AV3:AV7",
+                        "readable_range": "AV3:AV7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 48,
+                            "end_col": 48,
+                            "start_col_letter": "AV",
+                            "end_col_letter": "AV"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "985院校"
+                    },
+                    {
+                        "id": 120,
+                        "range": "F3:F7",
+                        "readable_range": "F3:F7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 6,
+                            "end_col": 6,
+                            "start_col_letter": "F",
+                            "end_col_letter": "F"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 121,
+                        "range": "CE8:CE21",
+                        "readable_range": "CE8:CE21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 83,
+                            "end_col": 83,
+                            "start_col_letter": "CE",
+                            "end_col_letter": "CE"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "11.90"
+                    },
+                    {
+                        "id": 122,
+                        "range": "BP3:BP7",
+                        "readable_range": "BP3:BP7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 68,
+                            "end_col": 68,
+                            "start_col_letter": "BP",
+                            "end_col_letter": "BP"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "2014-10-24 00:00:00"
+                    },
+                    {
+                        "id": 123,
+                        "range": "CA22:CA26",
+                        "readable_range": "CA22:CA26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 79,
+                            "end_col": 79,
+                            "start_col_letter": "CA",
+                            "end_col_letter": "CA"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "5.22"
+                    },
+                    {
+                        "id": 124,
+                        "range": "CB3:CB7",
+                        "readable_range": "CB3:CB7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 80,
+                            "end_col": 80,
+                            "start_col_letter": "CB",
+                            "end_col_letter": "CB"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "4.82"
+                    },
+                    {
+                        "id": 125,
+                        "range": "B8:B21",
+                        "readable_range": "B8:B21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 2,
+                            "end_col": 2,
+                            "start_col_letter": "B",
+                            "end_col_letter": "B"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "中国南方电网有限责任公司北京分公司"
+                    },
+                    {
+                        "id": 126,
+                        "range": "L8:L21",
+                        "readable_range": "L8:L21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 12,
+                            "end_col": 12,
+                            "start_col_letter": "L",
+                            "end_col_letter": "L"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "中国共产党党员"
+                    },
+                    {
+                        "id": 127,
+                        "range": "DU8:DU21",
+                        "readable_range": "DU8:DU21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 125,
+                            "end_col": 125,
+                            "start_col_letter": "DU",
+                            "end_col_letter": "DU"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "B"
+                    },
+                    {
+                        "id": 128,
+                        "range": "N8:N21",
+                        "readable_range": "N8:N21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 14,
+                            "end_col": 14,
+                            "start_col_letter": "N",
+                            "end_col_letter": "N"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 129,
+                        "range": "P8:P21",
+                        "readable_range": "P8:P21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 16,
+                            "end_col": 16,
+                            "start_col_letter": "P",
+                            "end_col_letter": "P"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 130,
+                        "range": "BP8:BP21",
+                        "readable_range": "BP8:BP21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 68,
+                            "end_col": 68,
+                            "start_col_letter": "BP",
+                            "end_col_letter": "BP"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "2013-07-16 00:00:00"
+                    },
+                    {
+                        "id": 131,
+                        "range": "DP3:DP7",
+                        "readable_range": "DP3:DP7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 120,
+                            "end_col": 120,
+                            "start_col_letter": "DP",
+                            "end_col_letter": "DP"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "无"
+                    },
+                    {
+                        "id": 132,
+                        "range": "DV8:DV21",
+                        "readable_range": "DV8:DV21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 126,
+                            "end_col": 126,
+                            "start_col_letter": "DV",
+                            "end_col_letter": "DV"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "B"
+                    },
+                    {
+                        "id": 133,
+                        "range": "AN22:AN26",
+                        "readable_range": "AN22:AN26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 40,
+                            "end_col": 40,
+                            "start_col_letter": "AN",
+                            "end_col_letter": "AN"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 134,
+                        "range": "AP22:AP26",
+                        "readable_range": "AP22:AP26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 42,
+                            "end_col": 42,
+                            "start_col_letter": "AP",
+                            "end_col_letter": "AP"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 135,
+                        "range": "BR3:BR7",
+                        "readable_range": "BR3:BR7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 70,
+                            "end_col": 70,
+                            "start_col_letter": "BR",
+                            "end_col_letter": "BR"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "10.79"
+                    },
+                    {
+                        "id": 136,
+                        "range": "T8:T21",
+                        "readable_range": "T8:T21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 20,
+                            "end_col": 20,
+                            "start_col_letter": "T",
+                            "end_col_letter": "T"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "综合业务序列（无相关工作经历）"
+                    },
+                    {
+                        "id": 137,
+                        "range": "B1:D1",
+                        "readable_range": "B1:D1",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 1,
+                            "start_col": 2,
+                            "end_col": 4,
+                            "start_col_letter": "B",
+                            "end_col_letter": "D"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 1,
+                        "cols_merged": 3,
+                        "cell_value": "岗位信息"
+                    },
+                    {
+                        "id": 138,
+                        "range": "BT3:BT7",
+                        "readable_range": "BT3:BT7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 72,
+                            "end_col": 72,
+                            "start_col_letter": "BT",
+                            "end_col_letter": "BT"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 139,
+                        "range": "Y1:AD1",
+                        "readable_range": "Y1:AD1",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 1,
+                            "start_col": 25,
+                            "end_col": 30,
+                            "start_col_letter": "Y",
+                            "end_col_letter": "AD"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 1,
+                        "cols_merged": 6,
+                        "cell_value": "家庭主要成员情况"
+                    },
+                    {
+                        "id": 140,
+                        "range": "M3:M7",
+                        "readable_range": "M3:M7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 13,
+                            "end_col": 13,
+                            "start_col_letter": "M",
+                            "end_col_letter": "M"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 141,
+                        "range": "W3:W7",
+                        "readable_range": "W3:W7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 23,
+                            "end_col": 23,
+                            "start_col_letter": "W",
+                            "end_col_letter": "W"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "否"
+                    },
+                    {
+                        "id": 142,
+                        "range": "AN8:AN21",
+                        "readable_range": "AN8:AN21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 40,
+                            "end_col": 40,
+                            "start_col_letter": "AN",
+                            "end_col_letter": "AN"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "工学博士学位"
+                    },
+                    {
+                        "id": 143,
+                        "range": "DE8:DE21",
+                        "readable_range": "DE8:DE21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 109,
+                            "end_col": 109,
+                            "start_col_letter": "DE",
+                            "end_col_letter": "DE"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "高级工程师"
+                    },
+                    {
+                        "id": 144,
+                        "range": "CF3:CF7",
+                        "readable_range": "CF3:CF7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 84,
+                            "end_col": 84,
+                            "start_col_letter": "CF",
+                            "end_col_letter": "CF"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 145,
+                        "range": "AX8:AX21",
+                        "readable_range": "AX8:AX21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 50,
+                            "end_col": 50,
+                            "start_col_letter": "AX",
+                            "end_col_letter": "AX"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "2013-06-23 00:00:00"
+                    },
+                    {
+                        "id": 146,
+                        "range": "AZ8:AZ21",
+                        "readable_range": "AZ8:AZ21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 52,
+                            "end_col": 52,
+                            "start_col_letter": "AZ",
+                            "end_col_letter": "AZ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "华南理工大学(博士研究生)\r\n山东科技大学(硕士研究生)\r\n山东科技大学(大学本科)"
+                    },
+                    {
+                        "id": 147,
+                        "range": "J22:J26",
+                        "readable_range": "J22:J26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 10,
+                            "end_col": 10,
+                            "start_col_letter": "J",
+                            "end_col_letter": "J"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "初婚"
+                    },
+                    {
+                        "id": 148,
+                        "range": "AS3:AS7",
+                        "readable_range": "AS3:AS7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 45,
+                            "end_col": 45,
+                            "start_col_letter": "AS",
+                            "end_col_letter": "AS"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "大学本科"
+                    },
+                    {
+                        "id": 149,
+                        "range": "L22:L26",
+                        "readable_range": "L22:L26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 12,
+                            "end_col": 12,
+                            "start_col_letter": "L",
+                            "end_col_letter": "L"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "群众"
+                    },
+                    {
+                        "id": 150,
+                        "range": "AU3:AU7",
+                        "readable_range": "AU3:AU7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 47,
+                            "end_col": 47,
+                            "start_col_letter": "AU",
+                            "end_col_letter": "AU"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "北京理工大学"
+                    },
+                    {
+                        "id": 151,
+                        "range": "BX22:BX26",
+                        "readable_range": "BX22:BX26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 76,
+                            "end_col": 76,
+                            "start_col_letter": "BX",
+                            "end_col_letter": "BX"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 152,
+                        "range": "DP22:DP26",
+                        "readable_range": "DP22:DP26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 120,
+                            "end_col": 120,
+                            "start_col_letter": "DP",
+                            "end_col_letter": "DP"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "无"
+                    },
+                    {
+                        "id": 153,
+                        "range": "BZ22:BZ26",
+                        "readable_range": "BZ22:BZ26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 78,
+                            "end_col": 78,
+                            "start_col_letter": "BZ",
+                            "end_col_letter": "BZ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 154,
+                        "range": "AM3:AM7",
+                        "readable_range": "AM3:AM7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 39,
+                            "end_col": 39,
+                            "start_col_letter": "AM",
+                            "end_col_letter": "AM"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "大学本科"
+                    },
+                    {
+                        "id": 155,
+                        "range": "V8:V21",
+                        "readable_range": "V8:V21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 22,
+                            "end_col": 22,
+                            "start_col_letter": "V",
+                            "end_col_letter": "V"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 156,
+                        "range": "BV3:BV7",
+                        "readable_range": "BV3:BV7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 74,
+                            "end_col": 74,
+                            "start_col_letter": "BV",
+                            "end_col_letter": "BV"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "4.82"
+                    },
+                    {
+                        "id": 157,
+                        "range": "DH22:DH26",
+                        "readable_range": "DH22:DH26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 112,
+                            "end_col": 112,
+                            "start_col_letter": "DH",
+                            "end_col_letter": "DH"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 158,
+                        "range": "DF3:DF7",
+                        "readable_range": "DF3:DF7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 110,
+                            "end_col": 110,
+                            "start_col_letter": "DF",
+                            "end_col_letter": "DF"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 159,
+                        "range": "O3:O7",
+                        "readable_range": "O3:O7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 15,
+                            "end_col": 15,
+                            "start_col_letter": "O",
+                            "end_col_letter": "O"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 160,
+                        "range": "BX8:BX21",
+                        "readable_range": "BX8:BX21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 76,
+                            "end_col": 76,
+                            "start_col_letter": "BX",
+                            "end_col_letter": "BX"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "5.44"
+                    },
+                    {
+                        "id": 161,
+                        "range": "BZ8:BZ21",
+                        "readable_range": "BZ8:BZ21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 78,
+                            "end_col": 78,
+                            "start_col_letter": "BZ",
+                            "end_col_letter": "BZ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 162,
+                        "range": "DH8:DH21",
+                        "readable_range": "DH8:DH21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 112,
+                            "end_col": 112,
+                            "start_col_letter": "DH",
+                            "end_col_letter": "DH"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "地市级党委政府、分子公司级奖励"
+                    },
+                    {
+                        "id": 163,
+                        "range": "BR8:BR21",
+                        "readable_range": "BR8:BR21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 70,
+                            "end_col": 70,
+                            "start_col_letter": "BR",
+                            "end_col_letter": "BR"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "12.07"
+                    },
+                    {
+                        "id": 164,
+                        "range": "DR3:DR7",
+                        "readable_range": "DR3:DR7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 122,
+                            "end_col": 122,
+                            "start_col_letter": "DR",
+                            "end_col_letter": "DR"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "A"
+                    },
+                    {
+                        "id": 165,
+                        "range": "BU3:BU7",
+                        "readable_range": "BU3:BU7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 73,
+                            "end_col": 73,
+                            "start_col_letter": "BU",
+                            "end_col_letter": "BU"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "10.79"
+                    },
+                    {
+                        "id": 166,
+                        "range": "E8:E21",
+                        "readable_range": "E8:E21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 5,
+                            "end_col": 5,
+                            "start_col_letter": "E",
+                            "end_col_letter": "E"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 167,
+                        "range": "G8:G21",
+                        "readable_range": "G8:G21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 7,
+                            "end_col": 7,
+                            "start_col_letter": "G",
+                            "end_col_letter": "G"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 168,
+                        "range": "DI3:DI7",
+                        "readable_range": "DI3:DI7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 113,
+                            "end_col": 113,
+                            "start_col_letter": "DI",
+                            "end_col_letter": "DI"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 169,
+                        "range": "AE1:AL1",
+                        "readable_range": "AE1:AL1",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 1,
+                            "start_col": 31,
+                            "end_col": 38,
+                            "start_col_letter": "AE",
+                            "end_col_letter": "AL"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 1,
+                        "cols_merged": 8,
+                        "cell_value": "主要学习经历"
+                    },
+                    {
+                        "id": 170,
+                        "range": "B3:B7",
+                        "readable_range": "B3:B7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 2,
+                            "end_col": 2,
+                            "start_col_letter": "B",
+                            "end_col_letter": "B"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "中国南方电网有限责任公司北京分公司"
+                    },
+                    {
+                        "id": 171,
+                        "range": "BB1:BO1",
+                        "readable_range": "BB1:BO1",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 1,
+                            "start_col": 54,
+                            "end_col": 67,
+                            "start_col_letter": "BB",
+                            "end_col_letter": "BO"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 1,
+                        "cols_merged": 14,
+                        "cell_value": "主要工作经历"
+                    },
+                    {
+                        "id": 172,
+                        "range": "BS3:BS7",
+                        "readable_range": "BS3:BS7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 71,
+                            "end_col": 71,
+                            "start_col_letter": "BS",
+                            "end_col_letter": "BS"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "否"
+                    },
+                    {
+                        "id": 173,
+                        "range": "U22:U26",
+                        "readable_range": "U22:U26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 21,
+                            "end_col": 21,
+                            "start_col_letter": "U",
+                            "end_col_letter": "U"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "2015-07-01 00:00:00"
+                    },
+                    {
+                        "id": 174,
+                        "range": "BS8:BS21",
+                        "readable_range": "BS8:BS21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 71,
+                            "end_col": 71,
+                            "start_col_letter": "BS",
+                            "end_col_letter": "BS"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "否"
+                    },
+                    {
+                        "id": 175,
+                        "range": "DZ8:DZ21",
+                        "readable_range": "DZ8:DZ21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 130,
+                            "end_col": 130,
+                            "start_col_letter": "DZ",
+                            "end_col_letter": "DZ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "本人具有12年的电力系统专业技术、科技研发和巡视巡察等工作经验，主要从事过配电系统中分布式电源和电动汽车规划和运行的影响、电力系统三道防线关键技术与应用、电网稳定控制策略与应用等新型电力系统相关技术和"
+                    },
+                    {
+                        "id": 176,
+                        "range": "BU8:BU21",
+                        "readable_range": "BU8:BU21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 73,
+                            "end_col": 73,
+                            "start_col_letter": "BU",
+                            "end_col_letter": "BU"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "6.46"
+                    },
+                    {
+                        "id": 177,
+                        "range": "DU3:DU7",
+                        "readable_range": "DU3:DU7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 125,
+                            "end_col": 125,
+                            "start_col_letter": "DU",
+                            "end_col_letter": "DU"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "A"
+                    },
+                    {
+                        "id": 178,
+                        "range": "DW3:DW7",
+                        "readable_range": "DW3:DW7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 127,
+                            "end_col": 127,
+                            "start_col_letter": "DW",
+                            "end_col_letter": "DW"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "B"
+                    },
+                    {
+                        "id": 179,
+                        "range": "DW8:DW21",
+                        "readable_range": "DW8:DW21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 127,
+                            "end_col": 127,
+                            "start_col_letter": "DW",
+                            "end_col_letter": "DW"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "B"
+                    },
+                    {
+                        "id": 180,
+                        "range": "AY22:AY26",
+                        "readable_range": "AY22:AY26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 51,
+                            "end_col": 51,
+                            "start_col_letter": "AY",
+                            "end_col_letter": "AY"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "在职大学本科"
+                    },
+                    {
+                        "id": 181,
+                        "range": "AQ22:AQ26",
+                        "readable_range": "AQ22:AQ26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 43,
+                            "end_col": 43,
+                            "start_col_letter": "AQ",
+                            "end_col_letter": "AQ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 182,
+                        "range": "BA22:BA26",
+                        "readable_range": "BA22:BA26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 53,
+                            "end_col": 53,
+                            "start_col_letter": "BA",
+                            "end_col_letter": "BA"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "机电一体化工程(在职大学本科)"
+                    },
+                    {
+                        "id": 183,
+                        "range": "AS22:AS26",
+                        "readable_range": "AS22:AS26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 45,
+                            "end_col": 45,
+                            "start_col_letter": "AS",
+                            "end_col_letter": "AS"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "大学本科"
+                    },
+                    {
+                        "id": 184,
+                        "range": "CE3:CE7",
+                        "readable_range": "CE3:CE7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 83,
+                            "end_col": 83,
+                            "start_col_letter": "CE",
+                            "end_col_letter": "CE"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "10.79"
+                    },
+                    {
+                        "id": 185,
+                        "range": "AO3:AO7",
+                        "readable_range": "AO3:AO7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 41,
+                            "end_col": 41,
+                            "start_col_letter": "AO",
+                            "end_col_letter": "AO"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "北京理工大学"
+                    },
+                    {
+                        "id": 186,
+                        "range": "X3:X7",
+                        "readable_range": "X3:X7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 24,
+                            "end_col": 24,
+                            "start_col_letter": "X",
+                            "end_col_letter": "X"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "满足"
+                    },
+                    {
+                        "id": 187,
+                        "range": "BY3:BY7",
+                        "readable_range": "BY3:BY7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 77,
+                            "end_col": 77,
+                            "start_col_letter": "BY",
+                            "end_col_letter": "BY"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "10.79"
+                    },
+                    {
+                        "id": 188,
+                        "range": "AQ8:AQ21",
+                        "readable_range": "AQ8:AQ21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 43,
+                            "end_col": 43,
+                            "start_col_letter": "AQ",
+                            "end_col_letter": "AQ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "电力系统及其自动化"
+                    },
+                    {
+                        "id": 189,
+                        "range": "BY8:BY21",
+                        "readable_range": "BY8:BY21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 77,
+                            "end_col": 77,
+                            "start_col_letter": "BY",
+                            "end_col_letter": "BY"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "11.90"
+                    },
+                    {
+                        "id": 190,
+                        "range": "DY3:DY7",
+                        "readable_range": "DY3:DY7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 129,
+                            "end_col": 129,
+                            "start_col_letter": "DY",
+                            "end_col_letter": "DY"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "4"
+                    },
+                    {
+                        "id": 191,
+                        "range": "AS8:AS21",
+                        "readable_range": "AS8:AS21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 45,
+                            "end_col": 45,
+                            "start_col_letter": "AS",
+                            "end_col_letter": "AS"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "博士研究生"
+                    },
+                    {
+                        "id": 192,
+                        "range": "C22:C26",
+                        "readable_range": "C22:C26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 3,
+                            "end_col": 3,
+                            "start_col_letter": "C",
+                            "end_col_letter": "C"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "北方业务部（雄安事业部）"
+                    },
+                    {
+                        "id": 193,
+                        "range": "O22:O26",
+                        "readable_range": "O22:O26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 15,
+                            "end_col": 15,
+                            "start_col_letter": "O",
+                            "end_col_letter": "O"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 194,
+                        "range": "DG8:DG21",
+                        "readable_range": "DG8:DG21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 111,
+                            "end_col": 111,
+                            "start_col_letter": "DG",
+                            "end_col_letter": "DG"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 195,
+                        "range": "BQ22:BQ26",
+                        "readable_range": "BQ22:BQ26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 69,
+                            "end_col": 69,
+                            "start_col_letter": "BQ",
+                            "end_col_letter": "BQ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "岗位调整"
+                    },
+                    {
+                        "id": 196,
+                        "range": "BS22:BS26",
+                        "readable_range": "BS22:BS26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 71,
+                            "end_col": 71,
+                            "start_col_letter": "BS",
+                            "end_col_letter": "BS"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "否"
+                    },
+                    {
+                        "id": 197,
+                        "range": "DS22:DS26",
+                        "readable_range": "DS22:DS26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 123,
+                            "end_col": 123,
+                            "start_col_letter": "DS",
+                            "end_col_letter": "DS"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "本年入职"
+                    },
+                    {
+                        "id": 198,
+                        "range": "DU22:DU26",
+                        "readable_range": "DU22:DU26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 125,
+                            "end_col": 125,
+                            "start_col_letter": "DU",
+                            "end_col_letter": "DU"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "系统无记录"
+                    },
+                    {
+                        "id": 199,
+                        "range": "H3:H7",
+                        "readable_range": "H3:H7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 8,
+                            "end_col": 8,
+                            "start_col_letter": "H",
+                            "end_col_letter": "H"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 200,
+                        "range": "D8:D21",
+                        "readable_range": "D8:D21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 4,
+                            "end_col": 4,
+                            "start_col_letter": "D",
+                            "end_col_letter": "D"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "新质生产力态势感知与政策分析研究岗"
+                    },
+                    {
+                        "id": 201,
+                        "range": "J3:J7",
+                        "readable_range": "J3:J7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 10,
+                            "end_col": 10,
+                            "start_col_letter": "J",
+                            "end_col_letter": "J"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "初婚"
+                    },
+                    {
+                        "id": 202,
+                        "range": "DD1:DI1",
+                        "readable_range": "DD1:DI1",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 1,
+                            "start_col": 108,
+                            "end_col": 113,
+                            "start_col_letter": "DD",
+                            "end_col_letter": "DI"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 1,
+                        "cols_merged": 6,
+                        "cell_value": "证书统计信息"
+                    },
+                    {
+                        "id": 203,
+                        "range": "F22:F26",
+                        "readable_range": "F22:F26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 6,
+                            "end_col": 6,
+                            "start_col_letter": "F",
+                            "end_col_letter": "F"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 204,
+                        "range": "CC8:CC21",
+                        "readable_range": "CC8:CC21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 81,
+                            "end_col": 81,
+                            "start_col_letter": "CC",
+                            "end_col_letter": "CC"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 205,
+                        "range": "R22:R26",
+                        "readable_range": "R22:R26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 18,
+                            "end_col": 18,
+                            "start_col_letter": "R",
+                            "end_col_letter": "R"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "软件工程师岗"
+                    },
+                    {
+                        "id": 206,
+                        "range": "T22:T26",
+                        "readable_range": "T22:T26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 20,
+                            "end_col": 20,
+                            "start_col_letter": "T",
+                            "end_col_letter": "T"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "综合业务序列（无相关工作经历）"
+                    },
+                    {
+                        "id": 207,
+                        "range": "BT22:BT26",
+                        "readable_range": "BT22:BT26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 72,
+                            "end_col": 72,
+                            "start_col_letter": "BT",
+                            "end_col_letter": "BT"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 208,
+                        "range": "H8:H21",
+                        "readable_range": "H8:H21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 8,
+                            "end_col": 8,
+                            "start_col_letter": "H",
+                            "end_col_letter": "H"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 209,
+                        "range": "R8:R21",
+                        "readable_range": "R8:R21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 18,
+                            "end_col": 18,
+                            "start_col_letter": "R",
+                            "end_col_letter": "R"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "高级经理"
+                    },
+                    {
+                        "id": 210,
+                        "range": "DQ8:DQ21",
+                        "readable_range": "DQ8:DQ21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 121,
+                            "end_col": 121,
+                            "start_col_letter": "DQ",
+                            "end_col_letter": "DQ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "无"
+                    },
+                    {
+                        "id": 211,
+                        "range": "J8:J21",
+                        "readable_range": "J8:J21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 10,
+                            "end_col": 10,
+                            "start_col_letter": "J",
+                            "end_col_letter": "J"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "已婚"
+                    },
+                    {
+                        "id": 212,
+                        "range": "K3:K7",
+                        "readable_range": "K3:K7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 11,
+                            "end_col": 11,
+                            "start_col_letter": "K",
+                            "end_col_letter": "K"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 213,
+                        "range": "DJ1:DO1",
+                        "readable_range": "DJ1:DO1",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 1,
+                            "start_col": 114,
+                            "end_col": 119,
+                            "start_col_letter": "DJ",
+                            "end_col_letter": "DO"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 1,
+                        "cols_merged": 6,
+                        "cell_value": "个人处分"
+                    },
+                    {
+                        "id": 214,
+                        "range": "CA8:CA21",
+                        "readable_range": "CA8:CA21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 79,
+                            "end_col": 79,
+                            "start_col_letter": "CA",
+                            "end_col_letter": "CA"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "11.90"
+                    },
+                    {
+                        "id": 215,
+                        "range": "C3:C7",
+                        "readable_range": "C3:C7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 3,
+                            "end_col": 3,
+                            "start_col_letter": "C",
+                            "end_col_letter": "C"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "党建人事部"
+                    },
+                    {
+                        "id": 216,
+                        "range": "CS1:CU1",
+                        "readable_range": "CS1:CU1",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 1,
+                            "start_col": 97,
+                            "end_col": 99,
+                            "start_col_letter": "CS",
+                            "end_col_letter": "CU"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 1,
+                        "cols_merged": 3,
+                        "cell_value": "职业技能等级"
+                    },
+                    {
+                        "id": 217,
+                        "range": "CD3:CD7",
+                        "readable_range": "CD3:CD7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 82,
+                            "end_col": 82,
+                            "start_col_letter": "CD",
+                            "end_col_letter": "CD"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "0.00"
+                    },
+                    {
+                        "id": 218,
+                        "range": "E3:E7",
+                        "readable_range": "E3:E7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 5,
+                            "end_col": 5,
+                            "start_col_letter": "E",
+                            "end_col_letter": "E"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 219,
+                        "range": "V22:V26",
+                        "readable_range": "V22:V26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 22,
+                            "end_col": 22,
+                            "start_col_letter": "V",
+                            "end_col_letter": "V"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 220,
+                        "range": "X22:X26",
+                        "readable_range": "X22:X26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 24,
+                            "end_col": 24,
+                            "start_col_letter": "X",
+                            "end_col_letter": "X"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "满足"
+                    },
+                    {
+                        "id": 221,
+                        "range": "DP8:DP21",
+                        "readable_range": "DP8:DP21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 120,
+                            "end_col": 120,
+                            "start_col_letter": "DP",
+                            "end_col_letter": "DP"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "无"
+                    },
+                    {
+                        "id": 222,
+                        "range": "DX3:DX7",
+                        "readable_range": "DX3:DX7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 128,
+                            "end_col": 128,
+                            "start_col_letter": "DX",
+                            "end_col_letter": "DX"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "2"
+                    },
+                    {
+                        "id": 223,
+                        "range": "DZ3:DZ7",
+                        "readable_range": "DZ3:DZ7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 130,
+                            "end_col": 130,
+                            "start_col_letter": "DZ",
+                            "end_col_letter": "DZ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "近三年，在海南电网公司期间主要负责落实公司各项后勤服务保障工作；2024年12月，借调至北京分公司，主要负责后勤保障、会议公务、办公安全及重大商务柔性团队相关工作。本人坚持“立足本职、积极协调、敬岗爱"
+                    },
+                    {
+                        "id": 224,
+                        "range": "Q3:Q7",
+                        "readable_range": "Q3:Q7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 17,
+                            "end_col": 17,
+                            "start_col_letter": "Q",
+                            "end_col_letter": "Q"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "综合服务中心后勤服务团队"
+                    },
+                    {
+                        "id": 225,
+                        "range": "S3:S7",
+                        "readable_range": "S3:S7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 19,
+                            "end_col": 19,
+                            "start_col_letter": "S",
+                            "end_col_letter": "S"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "专责"
+                    },
+                    {
+                        "id": 226,
+                        "range": "DF22:DF26",
+                        "readable_range": "DF22:DF26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 110,
+                            "end_col": 110,
+                            "start_col_letter": "DF",
+                            "end_col_letter": "DF"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 227,
+                        "range": "AT8:AT21",
+                        "readable_range": "AT8:AT21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 46,
+                            "end_col": 46,
+                            "start_col_letter": "AT",
+                            "end_col_letter": "AT"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "工学博士学位"
+                    },
+                    {
+                        "id": 228,
+                        "range": "CG1:CK1",
+                        "readable_range": "CG1:CK1",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 1,
+                            "start_col": 85,
+                            "end_col": 89,
+                            "start_col_letter": "CG",
+                            "end_col_letter": "CK"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 1,
+                        "cols_merged": 5,
+                        "cell_value": "外语语种及水平"
+                    },
+                    {
+                        "id": 229,
+                        "range": "AV8:AV21",
+                        "readable_range": "AV8:AV21",
+                        "position": {
+                            "start_row": 8,
+                            "end_row": 21,
+                            "start_col": 48,
+                            "end_col": 48,
+                            "start_col_letter": "AV",
+                            "end_col_letter": "AV"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 14,
+                        "cols_merged": 1,
+                        "cell_value": "985院校"
+                    },
+                    {
+                        "id": 230,
+                        "range": "DP1:DQ1",
+                        "readable_range": "DP1:DQ1",
+                        "position": {
+                            "start_row": 1,
+                            "end_row": 1,
+                            "start_col": 120,
+                            "end_col": 121,
+                            "start_col_letter": "DP",
+                            "end_col_letter": "DQ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 1,
+                        "cols_merged": 2,
+                        "cell_value": "处分统计信息"
+                    },
+                    {
+                        "id": 231,
+                        "range": "AQ3:AQ7",
+                        "readable_range": "AQ3:AQ7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 43,
+                            "end_col": 43,
+                            "start_col_letter": "AQ",
+                            "end_col_letter": "AQ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "自动化"
+                    },
+                    {
+                        "id": 232,
+                        "range": "AM22:AM26",
+                        "readable_range": "AM22:AM26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 39,
+                            "end_col": 39,
+                            "start_col_letter": "AM",
+                            "end_col_letter": "AM"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 233,
+                        "range": "DV22:DV26",
+                        "readable_range": "DV22:DV26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 126,
+                            "end_col": 126,
+                            "start_col_letter": "DV",
+                            "end_col_letter": "DV"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "B"
+                    },
+                    {
+                        "id": 234,
+                        "range": "DX22:DX26",
+                        "readable_range": "DX22:DX26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 128,
+                            "end_col": 128,
+                            "start_col_letter": "DX",
+                            "end_col_letter": "DX"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "0"
+                    },
+                    {
+                        "id": 235,
+                        "range": "DZ22:DZ26",
+                        "readable_range": "DZ22:DZ26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 130,
+                            "end_col": 130,
+                            "start_col_letter": "DZ",
+                            "end_col_letter": "DZ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "负责电网管理平台生产域调度产品线综合停电、停电资格等模块功能的开发维护"
+                    },
+                    {
+                        "id": 236,
+                        "range": "I22:I26",
+                        "readable_range": "I22:I26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 9,
+                            "end_col": 9,
+                            "start_col_letter": "I",
+                            "end_col_letter": "I"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "汉族"
+                    },
+                    {
+                        "id": 237,
+                        "range": "K22:K26",
+                        "readable_range": "K22:K26",
+                        "position": {
+                            "start_row": 22,
+                            "end_row": 26,
+                            "start_col": 11,
+                            "end_col": 11,
+                            "start_col_letter": "K",
+                            "end_col_letter": "K"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": ""
+                    },
+                    {
+                        "id": 238,
+                        "range": "BQ3:BQ7",
+                        "readable_range": "BQ3:BQ7",
+                        "position": {
+                            "start_row": 3,
+                            "end_row": 7,
+                            "start_col": 69,
+                            "end_col": 69,
+                            "start_col_letter": "BQ",
+                            "end_col_letter": "BQ"
+                        },
+                        "is_merged": true,
+                        "rows_merged": 5,
+                        "cols_merged": 1,
+                        "cell_value": "校园招聘"
+                    }
+                ]
+            }
+        },
+        "total_merged_regions_all_sheets": 238
+    },
+    "accuracy": {
+        "detection_method": "openpyxl (直接读取 Excel XML 结构)",
+        "theoretical_accuracy": "99.9%+",
+        "accuracy_note": "openpyxl 直接解析 Excel 文件的 XML 结构，读取 <mergeCells> 标签，理论上准确率接近 100%",
+        "detection_stats": {
+            "total_sheets": 1,
+            "total_merged_regions": 238,
+            "sheets_with_merged_cells": 1
+        }
+    }
+}

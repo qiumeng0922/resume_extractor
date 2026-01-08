@@ -1,0 +1,404 @@
+﻿.ax_default {
+  font-family:'Arial Normal', 'Arial', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:13px;
+  letter-spacing:normal;
+  color:#333333;
+  vertical-align:none;
+  text-align:center;
+  line-height:normal;
+  text-transform:none;
+}
+._形状 {
+}
+._图片_ {
+}
+._输入框 {
+  font-family:'Helvetica ', 'Helvetica', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:64px;
+  color:#1F1F1F;
+  text-align:left;
+  line-height:72px;
+}
+.primary_button {
+  color:#FFFFFF;
+}
+._一级标题 {
+  font-family:'Arial Normal', 'Arial', sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:32px;
+  text-align:left;
+}
+._二级标题 {
+  font-family:'Arial Normal', 'Arial', sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:24px;
+  text-align:left;
+}
+._三级标题 {
+  font-family:'Arial Normal', 'Arial', sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:18px;
+  text-align:left;
+}
+._四级标题 {
+  font-family:'Arial Normal', 'Arial', sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:14px;
+  text-align:left;
+}
+._五级标题 {
+  font-family:'Arial Normal', 'Arial', sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  text-align:left;
+}
+._六级标题 {
+  font-family:'Arial Normal', 'Arial', sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:10px;
+  text-align:left;
+}
+._文本段落 {
+  text-align:left;
+}
+.text_field {
+  color:#000000;
+  text-align:left;
+}
+.droplist {
+  color:#000000;
+  text-align:left;
+}
+._连接 {
+}
+.sticky_1 {
+  text-align:left;
+}
+._表单提示 {
+  color:#999999;
+}
+._表单禁用 {
+}
+.box_2 {
+}
+.ellipse {
+}
+.box_3 {
+}
+.radio_button {
+  text-align:left;
+}
+._流程形状 {
+}
+._线段 {
+}
+.image {
+}
+._输入框_常规_ {
+  font-family:'微软雅黑', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:rgba(150, 161, 175, 0.996078431372549);
+  text-align:left;
+}
+.tabs_默认_ {
+  font-family:'Microsoft Sans Serif Normal', 'Microsoft Sans Serif', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:rgba(102, 102, 102, 0.996078431372549);
+  text-align:left;
+  line-height:22px;
+}
+.tabs_选中_ {
+  font-family:'Arial Normal', 'Arial', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:#2590FF;
+  text-align:left;
+  line-height:22px;
+}
+._输入框_禁用_ {
+  font-family:'微软雅黑', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:#333333;
+  text-align:left;
+}
+._选择器_常规_ {
+  font-family:'Microsoft YaHei ', 'Microsoft YaHei', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:#96A1AF;
+  text-align:left;
+}
+._选择器_有值_ {
+  font-family:'Microsoft YaHei ', 'Microsoft YaHei', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:#333333;
+  text-align:left;
+}
+._输入框_有值_ {
+  font-family:'Microsoft YaHei ', 'Microsoft YaHei', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:rgba(51, 51, 51, 0.996078431372549);
+  text-align:left;
+}
+.checkbox {
+  text-align:left;
+}
+.form_disabled {
+}
+.box_1 {
+}
+.heading_3 {
+  font-family:'Arial Normal', 'Arial', sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:18px;
+  text-align:left;
+}
+.shape {
+}
+.paragraph {
+  text-align:left;
+}
+.table_cell {
+}
+._形状1 {
+}
+.label {
+  font-size:14px;
+  text-align:left;
+}
+.line {
+}
+.arrow {
+}
+._图片 {
+}
+.button {
+}
+._图片_1 {
+}
+.text_field1 {
+  font-family:'Microsoft YaHei ', 'Microsoft YaHei', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:#333333;
+  text-align:left;
+}
+.text_area {
+  color:#000000;
+  text-align:left;
+}
+.droplist1 {
+  font-family:'Microsoft YaHei ', 'Microsoft YaHei', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:#96A1AF;
+  text-align:left;
+}
+.icon {
+}
+.flow_shape {
+}
+.heading_1 {
+  font-family:'Arial Negreta', 'Arial Normal', 'Arial', sans-serif;
+  font-weight:700;
+  font-style:normal;
+  font-size:32px;
+  text-align:left;
+}
+._普通按钮1 {
+  font-family:'微软雅黑 Regular', '微软雅黑', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:#2590FF;
+  text-align:left;
+  line-height:22px;
+}
+.form_hint {
+  color:#999999;
+}
+.table_cell1 {
+}
+._标题_3 {
+  font-family:'Arial Normal', 'Arial', sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:18px;
+  text-align:left;
+}
+._焦点按钮 {
+  font-family:'微软雅黑 Regular', '微软雅黑', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:#FFFFFF;
+  text-align:left;
+  line-height:20px;
+}
+.button1 {
+}
+._形状2 {
+  font-family:'Helvetica ', 'Helvetica', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:64px;
+  color:#1F1F1F;
+  text-align:left;
+  line-height:72px;
+}
+._14px-常规正文 {
+  font-family:'PingFang SC ', 'PingFang SC', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:#1F1F1F;
+  text-align:left;
+  line-height:22px;
+}
+._20px-卡片标题 {
+  font-family:'PingFang SC ', 'PingFang SC', sans-serif;
+  font-weight:600;
+  font-style:normal;
+  font-size:20px;
+  color:#1F1F1F;
+  text-align:left;
+  line-height:28px;
+}
+.box_11 {
+}
+.shape1 {
+  font-family:'Arial Normal', 'Arial', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:13px;
+  color:#333333;
+  text-align:center;
+  line-height:normal;
+}
+.icon1 {
+}
+.label1 {
+  font-size:14px;
+  text-align:left;
+}
+.form_hint1 {
+  color:#999999;
+}
+.placeholder {
+}
+.tree_node {
+  text-align:left;
+}
+.iconfont {
+  font-family:'iconfont ', 'iconfont', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:18px;
+  color:#666666;
+}
+.marker {
+  color:#FFFFFF;
+}
+._图像 {
+}
+._文本链接 {
+  color:#0000FF;
+}
+._默认样式 {
+}
+.text_link_mouse_over {
+}
+.text_link_mouse_down {
+}
+.vertical_line {
+}
+._卡片大标题（_192c7d）20b {
+  font-family:'Source Han Sans SC ', 'Source Han Sans SC', sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:20px;
+  color:#192C7D;
+  text-align:left;
+}
+._全局单位、导航当前、卡片小标题（_192c7d）16b {
+  font-family:'Source Han Sans SC ', 'Source Han Sans SC', sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:16px;
+  color:#192C7D;
+  text-align:left;
+}
+.____ffffff_16 {
+  font-family:'Source Han Sans SC ', 'Source Han Sans SC', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:16px;
+  color:#FFFFFF;
+  text-align:left;
+}
+.______3d5063_38b {
+  font-family:'Source Han Sans SC ', 'Source Han Sans SC', sans-serif;
+  font-weight:normal;
+  font-style:normal;
+  font-size:38px;
+  color:#3D5063;
+  text-align:left;
+}
+._字段名、字段内容（_3d5063）16 {
+  font-family:'Source Han Sans SC ', 'Source Han Sans SC', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:16px;
+  color:#3D5063;
+  text-align:left;
+}
+._指标名列表记录数、中小号字段（_3d5063）14 {
+  font-family:'Source Han Sans SC ', 'Source Han Sans SC', sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:#3D5063;
+  text-align:left;
+}
+._导航非当前（_647382）16b {
+  font-family:'Source Han Sans SC ', 'Source Han Sans SC', sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:16px;
+  color:#647382;
+  text-align:left;
+}
+.heading_2 {
+  font-family:'Arial Negreta', 'Arial Normal', 'Arial', sans-serif;
+  font-weight:700;
+  font-style:normal;
+  font-size:24px;
+  text-align:left;
+}
+.horizontal_line {
+}
+textarea, select, input, button { outline: none; }

@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>待处理简历列表 - AI简历初筛系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f7fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #e8eaed;
+        }
+
+        .header-icon {
+            width: 32px;
+            height: 32px;
+            margin-right: 12px;
+            background-color: #4285f4;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .header-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #202124;
+        }
+
+        .upload-section {
+            background-color: #f8f9fa;
+            border: 2px dashed #dadce0;
+            border-radius: 8px;
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .upload-area {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .file-input-label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: white;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .file-input-label:hover {
+            background-color: #f8f9fa;
+            border-color: #4285f4;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .file-name {
+            display: block;
+            margin-top: 8px;
+            font-size: 12px;
+            color: #5f6368;
+        }
+
+        .upload-btn {
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .upload-btn:hover {
+            background-color: #3367d6;
+        }
+
+        .upload-btn:disabled {
+            background-color: #dadce0;
+            cursor: not-allowed;
+        }
+
+        .loading {
+            display: none;
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #4285f4;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .filter-section {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .filter-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #5f6368;
+        }
+
+        .filter-select, .filter-input {
+            padding: 8px 12px;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            font-size: 14px;
+            min-width: 180px;
+        }
+
+        .search-btn {
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            padding: 8px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: auto;
+        }
+
+        .search-btn:hover {
+            background-color: #3367d6;
+        }
+
+        .actions-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .export-btn {
+            background-color: white;
+            color: #5f6368;
+            border: 1px solid #dadce0;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .export-btn:hover {
+            background-color: #f8f9fa;
+        }
+
+        .batch-confirm-btn {
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .batch-confirm-btn:hover {
+            background-color: #3367d6;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        thead {
+            background-color: #f8f9fa;
+            position: sticky;
+            top: 0;
+        }
+
+        th {
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #202124;
+            border-bottom: 2px solid #e8eaed;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e8eaed;
+            color: #5f6368;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-passed {
+            background-color: #e6f4ea;
+            color: #137333;
+        }
+
+        .status-rejected {
+            background-color: #fce8e6;
+            color: #c5221f;
+        }
+
+        .action-link {
+            color: #4285f4;
+            text-decoration: none;
+            margin-right: 12px;
+            cursor: pointer;
+        }
+
+        .action-link:hover {
+            text-decoration: underline;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #e8eaed;
+        }
+
+        .pagination-info {
+            color: #5f6368;
+            font-size: 14px;
+        }
+
+        .pagination-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .page-size-select {
+            padding: 6px 8px;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .page-btn {
+            padding: 6px 12px;
+            border: 1px solid #dadce0;
+            background-color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .page-btn:hover {
+            background-color: #f8f9fa;
+        }
+
+        .page-btn.active {
+            background-color: #4285f4;
+            color: white;
+            border-color: #4285f4;
+        }
+
+        .page-btn:disabled {
+            background-color: #f8f9fa;
+            color: #dadce0;
+            cursor: not-allowed;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #5f6368;
+        }
+
+        .empty-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .key-profile {
+            white-space: pre-line;
+            line-height: 1.6;
+        }
+
+        .alert {
+            padding: 12px 16px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        .alert.show {
+            display: block;
+        }
+
+        .alert-success {
+            background-color: #e6f4ea;
+            color: #137333;
+            border-left: 4px solid #137333;
+        }
+
+        .alert-error {
+            background-color: #fce8e6;
+            color: #c5221f;
+            border-left: 4px solid #c5221f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 标题 -->
+        <div class="header">
+            <div class="header-icon">📋</div>
+            <h1 class="header-title">待处理简历列表</h1>
+        </div>
+
+        <!-- 消息提示 -->
+        <div id="alert" class="alert"></div>
+
+        <!-- 上传区域 -->
+        <div class="upload-section">
+            <h3 style="margin-bottom: 16px; color: #202124;">上传文件</h3>
+            <div class="upload-area">
+                <div class="file-input-wrapper">
+                    <label class="file-input-label" for="resumeFile">
+                        📄 选择简历文件
+                    </label>
+                    <input type="file" id="resumeFile" class="file-input" accept=".xlsx,.xls">
+                    <span class="file-name" id="resumeFileName">请选择：（现RPA小工具流程）简历导入多行表.xlsx</span>
+                </div>
+                <div class="file-input-wrapper">
+                    <label class="file-input-label" for="positionFile">
+                        📑 选择岗位需求文件
+                    </label>
+                    <input type="file" id="positionFile" class="file-input" accept=".xlsx,.xls">
+                    <span class="file-name" id="positionFileName">请选择：条件要求较简单的部分岗位岗位要求-模拟数据.xlsx</span>
+                </div>
+            </div>
+            <button class="upload-btn" id="uploadBtn" disabled>🚀 开始处理</button>
+            
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p style="margin-top: 12px; color: #5f6368;">正在处理中，请稍候...</p>
+            </div>
+        </div>
+
+        <!-- 筛选区域 -->
+        <div class="filter-section">
+            <div class="filter-group">
+                <label class="filter-label">岗位：</label>
+                <select class="filter-select" id="positionFilter">
+                    <option value="">全部岗位</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">AI初筛状态：</label>
+                <select class="filter-select" id="statusFilter">
+                    <option value="">全部状态</option>
+                    <option value="拟通过">拟通过</option>
+                    <option value="拟淘汰">拟淘汰</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">候选人信息：</label>
+                <input type="text" class="filter-input" id="searchInput" placeholder="搜索姓名、学校等">
+            </div>
+            <button class="search-btn" id="searchBtn">🔍 查询</button>
+        </div>
+
+        <!-- 操作按钮 -->
+        <div class="actions-section">
+            <button class="export-btn" id="exportBtn">⬇️ 导出</button>
+            <button class="batch-confirm-btn" id="batchConfirmBtn">一键全部确认</button>
+        </div>
+
+        <!-- 数据表格 -->
+        <div class="table-wrapper">
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>姓名</th>
+                        <th>关键画像</th>
+                        <th>应聘岗位</th>
+                        <th>AI初筛结果</th>
+                        <th>淘汰原因</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr>
+                        <td colspan="7" class="empty-state">
+                            <div class="empty-icon">📭</div>
+                            <p>暂无数据，请上传文件开始处理</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 分页 -->
+        <div class="pagination">
+            <div class="pagination-info">
+                共<span id="totalCount">0</span>条记录 每页显示：
+                <select class="page-size-select" id="pageSizeSelect">
+                    <option value="2">2</option>
+                    <option value="5" selected>5</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+            <div class="pagination-controls">
+                <button class="page-btn" id="prevBtn" disabled>« 上一页</button>
+                <div id="pageNumbers"></div>
+                <button class="page-btn" id="nextBtn" disabled>下一页 »</button>
+                <button class="page-btn" id="confirmPageBtn">确定</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 全局状态
+        let allData = [];
+        let filteredData = [];
+        let currentPage = 1;
+        let pageSize = 5;
+
+        // API 配置
+        const API_BASE_URL = 'http://127.0.0.1:8000';
+
+        // DOM 元素
+        const resumeFile = document.getElementById('resumeFile');
+        const positionFile = document.getElementById('positionFile');
+        const resumeFileName = document.getElementById('resumeFileName');
+        const positionFileName = document.getElementById('positionFileName');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const loading = document.getElementById('loading');
+        const alert = document.getElementById('alert');
+        const positionFilter = document.getElementById('positionFilter');
+        const statusFilter = document.getElementById('statusFilter');
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const exportBtn = document.getElementById('exportBtn');
+        const batchConfirmBtn = document.getElementById('batchConfirmBtn');
+        const tableBody = document.getElementById('tableBody');
+        const totalCount = document.getElementById('totalCount');
+        const pageSizeSelect = document.getElementById('pageSizeSelect');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const confirmPageBtn = document.getElementById('confirmPageBtn');
+        const pageNumbers = document.getElementById('pageNumbers');
+
+        // 文件选择事件
+        resumeFile.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                resumeFileName.textContent = file.name;
+                checkUploadReady();
+            }
+        });
+
+        positionFile.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                positionFileName.textContent = file.name;
+                checkUploadReady();
+            }
+        });
+
+        // 检查是否可以上传
+        function checkUploadReady() {
+            uploadBtn.disabled = !(resumeFile.files[0] && positionFile.files[0]);
+        }
+
+        // 显示消息
+        function showAlert(message, type = 'success') {
+            alert.textContent = message;
+            alert.className = `alert alert-${type} show`;
+            setTimeout(() => {
+                alert.classList.remove('show');
+            }, 5000);
+        }
+
+        // 上传并处理文件
+        uploadBtn.addEventListener('click', async () => {
+            const resume = resumeFile.files[0];
+            const position = positionFile.files[0];
+
+            if (!resume || !position) {
+                showAlert('请选择两个文件', 'error');
+                return;
+            }
+
+            // 显示加载动画
+            loading.classList.add('active');
+            uploadBtn.disabled = true;
+
+            try {
+                // 创建 FormData
+                const formData = new FormData();
+                formData.append('resume_file', resume);
+                formData.append('position_file', position);
+
+                // 发送请求
+                const response = await fetch(`${API_BASE_URL}/api/screen`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error(`请求失败: ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                if (result.success) {
+                    allData = result.data;
+                    filteredData = [...allData];
+                    
+                    // 更新岗位筛选选项
+                    updatePositionFilter();
+                    
+                    // 显示数据
+                    currentPage = 1;
+                    renderTable();
+                    
+                    showAlert(`处理成功！共 ${result.statistics.total} 份简历，通过 ${result.statistics.passed} 份，淘汰 ${result.statistics.rejected} 份`, 'success');
+                } else {
+                    throw new Error(result.message || '处理失败');
+                }
+
+            } catch (error) {
+                console.error('处理失败:', error);
+                showAlert('处理失败: ' + error.message, 'error');
+            } finally {
+                loading.classList.remove('active');
+                uploadBtn.disabled = false;
+            }
+        });
+
+        // 更新岗位筛选选项
+        function updatePositionFilter() {
+            const positions = [...new Set(allData.map(item => item.应聘岗位))];
+            positionFilter.innerHTML = '<option value="">全部岗位</option>';
+            positions.forEach(pos => {
+                const option = document.createElement('option');
+                option.value = pos;
+                option.textContent = pos;
+                positionFilter.appendChild(option);
+            });
+        }
+
+        // 筛选数据
+        function filterData() {
+            const position = positionFilter.value;
+            const status = statusFilter.value;
+            const search = searchInput.value.toLowerCase();
+
+            filteredData = allData.filter(item => {
+                const matchPosition = !position || item.应聘岗位 === position;
+                const matchStatus = !status || item.AI初筛结果 === status;
+                const matchSearch = !search || 
+                    item.姓名.toLowerCase().includes(search) ||
+                    item.关键画像.toLowerCase().includes(search);
+                
+                return matchPosition && matchStatus && matchSearch;
+            });
+
+            currentPage = 1;
+            renderTable();
+        }
+
+        // 查询按钮
+        searchBtn.addEventListener('click', filterData);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                filterData();
+            }
+        });
+
+        // 渲染表格
+        function renderTable() {
+            const start = (currentPage - 1) * pageSize;
+            const end = start + pageSize;
+            const pageData = filteredData.slice(start, end);
+
+            if (pageData.length === 0) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="empty-state">
+                            <div class="empty-icon">📭</div>
+                            <p>没有找到符合条件的数据</p>
+                        </td>
+                    </tr>
+                `;
+            } else {
+                tableBody.innerHTML = pageData.map(item => `
+                    <tr>
+                        <td>${item.序号}</td>
+                        <td>${item.姓名}</td>
+                        <td><div class="key-profile">${item.关键画像}</div></td>
+                        <td>${item.应聘岗位}</td>
+                        <td>
+                            <span class="status-badge ${item.AI初筛结果 === '拟通过' ? 'status-passed' : 'status-rejected'}">
+                                ${item.AI初筛结果}
+                            </span>
+                        </td>
+                        <td>${item.淘汰原因}</td>
+                        <td>
+                            <a class="action-link" href="#" onclick="viewDetail(${item.序号}); return false;">简历详情</a>
+                            <a class="action-link" href="#" onclick="pass(${item.序号}); return false;">通过</a>
+                            <a class="action-link" href="#" onclick="reject(${item.序号}); return false;">淘汰</a>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+
+            totalCount.textContent = filteredData.length;
+            renderPagination();
+        }
+
+        // 渲染分页
+        function renderPagination() {
+            const totalPages = Math.ceil(filteredData.length / pageSize);
+            
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages || totalPages === 0;
+
+            // 生成页码
+            let pages = [];
+            if (totalPages <= 5) {
+                pages = Array.from({length: totalPages}, (_, i) => i + 1);
+            } else {
+                if (currentPage <= 3) {
+                    pages = [1, 2, 3, 4, 5];
+                } else if (currentPage >= totalPages - 2) {
+                    pages = [totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+                } else {
+                    pages = [currentPage - 2, currentPage - 1, currentPage, currentPage + 1, currentPage + 2];
+                }
+            }
+
+            pageNumbers.innerHTML = pages.map(page => `
+                <button class="page-btn ${page === currentPage ? 'active' : ''}" 
+                        onclick="goToPage(${page})">${page}</button>
+            `).join('');
+        }
+
+        // 翻页
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderTable();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const totalPages = Math.ceil(filteredData.length / pageSize);
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderTable();
+            }
+        });
+
+        pageSizeSelect.addEventListener('change', (e) => {
+            pageSize = parseInt(e.target.value);
+            currentPage = 1;
+            renderTable();
+        });
+
+        function goToPage(page) {
+            currentPage = page;
+            renderTable();
+        }
+
+        // 操作函数
+        function viewDetail(id) {
+            const item = allData.find(item => item.序号 === id);
+            alert(`查看简历详情：\n\n姓名：${item.姓名}\n岗位：${item.应聘岗位}\n状态：${item.AI初筛结果}`);
+        }
+
+        function pass(id) {
+            const item = allData.find(item => item.序号 === id);
+            item.AI初筛结果 = '拟通过';
+            item.淘汰原因 = '';
+            renderTable();
+            showAlert(`${item.姓名} 已标记为通过`, 'success');
+        }
+
+        function reject(id) {
+            const item = allData.find(item => item.序号 === id);
+            const reason = prompt('请输入淘汰原因：');
+            if (reason !== null) {
+                item.AI初筛结果 = '拟淘汰';
+                item.淘汰原因 = reason;
+                renderTable();
+                showAlert(`${item.姓名} 已标记为淘汰`, 'success');
+            }
+        }
+
+        // 导出
+        exportBtn.addEventListener('click', () => {
+            const dataStr = JSON.stringify(filteredData, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = '简历初筛结果.json';
+            a.click();
+            URL.revokeObjectURL(url);
+            showAlert('导出成功', 'success');
+        });
+
+        // 一键确认
+        batchConfirmBtn.addEventListener('click', () => {
+            if (confirm('确定要全部确认吗？')) {
+                showAlert('已全部确认', 'success');
+            }
+        });
+
+        // 初始化
+        renderTable();
+    </script>
+</body>
+</html>
+
+
+
+

@@ -74,8 +74,11 @@ async def startup_event():
     # 专业库路径
     major_library_path = os.path.join(llm_filter_path, "data/专业库.json")
     
+    # 院校库路径
+    school_library_path = os.path.join(llm_filter_path, "data/院校库.json")
+    
     # 初始化筛选器
-    screener = ResumeScreener(model_manager=model_manager, major_library_path=major_library_path)
+    screener = ResumeScreener(model_manager=model_manager, major_library_path=major_library_path, school_library_path=school_library_path)
     
     logger.info("✅ AI 简历初筛服务初始化完成")
 
@@ -139,6 +142,19 @@ async def screen_resumes(
             raise HTTPException(status_code=400, detail="简历文件解析失败")
         
         print(f"✅ 简历解析完成，共 {len(resumes_data)} 条记录")
+        
+        # 保存解析后的JSON到data文件夹
+        data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+        os.makedirs(data_dir, exist_ok=True)
+        
+        # 生成JSON文件名（基于上传的文件名）
+        resume_json_filename = os.path.splitext(resume_file.filename)[0] + ".json"
+        resume_json_path = os.path.join(data_dir, resume_json_filename)
+        
+        with open(resume_json_path, 'w', encoding='utf-8') as f:
+            json.dump(resumes_data, f, ensure_ascii=False, indent=2)
+        
+        print(f"💾 简历JSON已保存到: {resume_json_path}")
         
         # 🎯 关键修改：直接使用 7.LLM_resume_filter 中的岗位JSON文件
         # 这样可以确保与直接运行 resume_filter.py 的结果完全一致

@@ -409,7 +409,7 @@ def add_to_array(array_field, field_name, value, field_order):
 
 def main():
     """主函数"""
-    file_name = "（现RPA小工具流程）简历导入多行表-系统架构师.xlsx"
+    file_name = "（现RPA小工具流程）简历导入多行表-系统架构师_20260116_v2.xlsx"
     output_file = os.path.splitext(file_name)[0] + ".json"
     
     print("=" * 80)

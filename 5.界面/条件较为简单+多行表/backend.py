@@ -5,13 +5,16 @@ FastAPI 后端服务 - 处理简历初筛请求
 功能：
 1. 接收上传的两个 Excel 文件
 2. 调用解析脚本转换为 JSON
-3. 模拟 AI 初筛并返回结果
+3. 直接调用 LLM 筛选模块进行筛选
 """
 import os
 import json
 import shutil
 import tempfile
+import asyncio
+import time
 from typing import List
+from datetime import datetime
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -25,7 +28,19 @@ sys.path.append(os.path.dirname(__file__))
 from detect_merged_cells_with_accuracy import parse_excel_to_multirow_json
 from detect_merged_cells_with_accuracy_position_adjust import parse_excel_to_position_json
 
-app = FastAPI(title="AI简历初筛系统", version="1.0.0")
+# 导入 LLM 筛选模块
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+llm_filter_path = os.path.join(project_root, "7.LLM_resume_filter")
+sys.path.insert(0, llm_filter_path)
+
+from core.screener import ResumeScreener
+from managers.llm_manager import get_model_manager
+from utils.logger_config import setup_logger
+
+# 初始化日志
+logger = setup_logger("backend_service")
+
+app = FastAPI(title="AI简历初筛系统", version="2.0.0")
 
 # 配置 CORS
 app.add_middleware(
@@ -36,91 +51,42 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# 全局变量：模型管理器和筛选器
+model_manager = None
+screener = None
 
-def simulate_screening(resumes_data: list, positions_data: list) -> list:
-    """
-    模拟 AI 简历初筛逻辑
-    这里使用简单的规则模拟,实际项目中应该接入真实的 AI 筛选逻辑
-    """
-    results = []
+
+@app.on_event("startup")
+async def startup_event():
+    """服务启动时初始化"""
+    global model_manager, screener
     
-    for idx, resume in enumerate(resumes_data, 1):
-        # 提取简历基本信息
-        basic_info = resume.get("基本信息", {})
-        education_info = resume.get("学习经历统计信息", {})
-        work_info = resume.get("工作经历统计信息", {})
-        position_info = resume.get("岗位信息", {})
-        
-        # 构建关键画像
-        name = basic_info.get("姓名", "未知")
-        education = education_info.get("最高学历", "")
-        school = education_info.get("最高学历毕业院校", "")
-        
-        # 计算年龄
-        age_str = basic_info.get("出生日期", "")
-        age = "N/A"
-        if age_str:
-            try:
-                from datetime import datetime
-                birth_year = int(str(age_str).split("-")[0]) if "-" in str(age_str) else int(str(age_str)[:4])
-                age = datetime.now().year - birth_year
-            except:
-                age = "N/A"
-        
-        current_company = basic_info.get("现工作单位", "")
-        apply_position = position_info.get("应聘岗位", "")
-        
-        key_profile = f"{education} | {school} | {age}岁\n现任：{current_company}"
-        
-        # 简单的筛选逻辑
-        is_passed = True
-        reject_reason = ""
-        
-        # 1. 检查回避原则
-        if basic_info.get("是否满足回避原则", "").strip() == "否":
-            is_passed = False
-            reject_reason = "亲属回避未通过"
-        
-        # 2. 检查年龄 (假设超过 45 岁不通过)
-        elif isinstance(age, int) and age > 45:
-            is_passed = False
-            reject_reason = "年龄超出限制"
-        
-        # 3. 检查学历 (假设要求本科以上)
-        elif education and education not in ["本科", "硕士", "博士"]:
-            is_passed = False
-            reject_reason = "学历不符合要求"
-        
-        # 4. 检查工作年限 (假设要求3年以上)
-        elif work_info.get("系统内工作时长（年）"):
-            try:
-                years = float(work_info.get("系统内工作时长（年）", 0))
-                if years < 3:
-                    is_passed = False
-                    reject_reason = "工作年限不足"
-            except:
-                pass
-        
-        result = {
-            "序号": idx,
-            "姓名": name,
-            "关键画像": key_profile,
-            "应聘岗位": apply_position,
-            "AI初筛结果": "拟通过" if is_passed else "拟淘汰",
-            "淘汰原因": reject_reason
-        }
-        
-        results.append(result)
+    logger.info("🚀 正在初始化 AI 简历初筛服务...")
     
-    return results
+    # 获取LLM Studio模型管理器
+    model_manager = get_model_manager()
+    
+    if model_manager:
+        logger.info("✅ 已加载模型管理器，可以使用LLM进行筛选")
+    else:
+        logger.warning("⚠️  模型管理器未初始化，LLM筛选功能不可用")
+    
+    # 专业库路径
+    major_library_path = os.path.join(llm_filter_path, "data/专业库.json")
+    
+    # 初始化筛选器
+    screener = ResumeScreener(model_manager=model_manager, major_library_path=major_library_path)
+    
+    logger.info("✅ AI 简历初筛服务初始化完成")
 
 
 @app.get("/")
 async def root():
     """根路径"""
     return {
-        "message": "AI简历初筛系统 API",
-        "version": "1.0.0",
+        "message": "AI简历初筛系统",
+        "version": "2.0.0",
+        "llm_available": model_manager is not None,
         "endpoints": {
             "/": "系统信息",
             "/health": "健康检查",
@@ -132,7 +98,11 @@ async def root():
 @app.get("/health")
 async def health_check():
     """健康检查"""
-    return {"status": "ok", "message": "服务运行正常"}
+    return {
+        "status": "ok",
+        "message": "服务运行正常",
+        "llm_available": model_manager is not None
+    }
 
 
 @app.post("/api/screen")
@@ -143,6 +113,8 @@ async def screen_resumes(
     """
     简历初筛接口
     接收两个 Excel 文件,返回筛选结果
+    
+    注意：为确保结果一致性，岗位数据直接使用 7.LLM_resume_filter 中的JSON文件
     """
     temp_dir = None
     try:
@@ -168,20 +140,263 @@ async def screen_resumes(
         
         print(f"✅ 简历解析完成，共 {len(resumes_data)} 条记录")
         
-        # 解析岗位需求文件
-        print(f"⏳ 正在解析岗位需求文件: {position_file.filename}")
-        positions_data = parse_excel_to_position_json(position_path)
+        # 🎯 关键修改：直接使用 7.LLM_resume_filter 中的岗位JSON文件
+        # 这样可以确保与直接运行 resume_filter.py 的结果完全一致
+        print(f"⏳ 正在加载岗位需求数据（使用7.LLM_resume_filter中的JSON文件）...")
+        
+        # 获取当前文件所在目录（5.界面/条件较为简单+多行表）
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        # 向上两层到项目根目录（11.AI简历可行性评估）
+        # 5.界面/条件较为简单+多行表 -> 5.界面 -> 11.AI简历可行性评估
+        project_root = os.path.dirname(os.path.dirname(current_dir))
+        # 构建完整路径
+        llm_filter_job_file = os.path.join(
+            project_root,
+            "7.LLM_resume_filter/data/条件要求较简单的部分岗位岗位要求-模拟数据_规整后_去掉系统外.json"
+        )
+        
+        if not os.path.exists(llm_filter_job_file):
+            raise HTTPException(
+                status_code=500, 
+                detail=f"岗位数据文件不存在: {llm_filter_job_file}"
+            )
+        
+        with open(llm_filter_job_file, 'r', encoding='utf-8') as f:
+            positions_data = json.load(f)
         
         if not positions_data:
-            raise HTTPException(status_code=400, detail="岗位需求文件解析失败")
+            raise HTTPException(status_code=400, detail="岗位需求数据加载失败")
         
-        print(f"✅ 岗位需求解析完成，共 {len(positions_data)} 个岗位")
+        print(f"✅ 岗位需求加载完成，共 {len(positions_data)} 个岗位（来自7.LLM_resume_filter）")
         
-        # 执行初筛
-        print("⏳ 正在执行 AI 初筛...")
-        screening_results = simulate_screening(resumes_data, positions_data)
+        # 直接调用 LLM 筛选模块
+        print("⏳ 正在执行 AI 筛选...")
         
-        print(f"✅ 初筛完成，共处理 {len(screening_results)} 份简历")
+        # 记录开始时间
+        start_time = time.time()
+        
+        # 并发筛选所有岗位
+        async def screen_job_with_info(job):
+            """筛选单个岗位并返回结果"""
+            job_name = job.get('岗位', f"岗位{job.get('序号', '未知')}")
+            job_id = job.get('序号', 0)
+            logger.info(f"[并发] 📌 开始筛选岗位 {job_id}: {job_name}")
+            
+            results = await screener.screen_batch(job, resumes_data, resume_file="上传文件")
+            
+            logger.info(f"[并发] ✅ 岗位 {job_name} 筛选完成，共 {len(results)} 份简历")
+            return job, results
+        
+        # 并发执行所有岗位的筛选
+        job_results_list = await asyncio.gather(*[screen_job_with_info(job) for job in positions_data])
+        
+        # 整理结果
+        all_results = []
+        for job, results in job_results_list:
+            all_results.extend(results)
+        
+        # 调试信息
+        logger.info(f"📊 总筛选结果数: {len(all_results)}")
+        
+        # 计算耗时
+        elapsed_time = time.time() - start_time
+        
+        # 构建输出结果
+        screening_results = []
+        
+        # 创建一个已处理的简历集合（使用序号+姓名避免重复）
+        processed_resumes = set()
+        
+        for result in all_results:
+            resume_id = result.resume_id
+            job_name_from_result = result.job_name
+            
+            logger.info(f"🔍 处理筛选结果: resume_id={resume_id}, job_name={job_name_from_result}")
+            
+            # 从 filter_details 中提取姓名（如果有的话）
+            name_from_result = None
+            if result.filter_details and len(result.filter_details) > 0:
+                resume_info = result.filter_details[0].get('resume_info', '')
+                # resume_info 格式: "序号=2 | 姓名=张三 | 学历=博士研究生 | 学校=清华大学"
+                if '姓名=' in resume_info:
+                    parts = resume_info.split('|')
+                    for part in parts:
+                        if '姓名=' in part:
+                            name_from_result = part.split('姓名=')[1].strip()
+                            break
+            
+            logger.info(f"   从结果中提取的姓名: {name_from_result}")
+            
+            # 从resumes列表中查找简历数据
+            matching_resumes = [resume for resume in resumes_data if str(resume.get('序号', '')) == resume_id]
+            
+            logger.info(f"   找到 {len(matching_resumes)} 个匹配的简历记录")
+            
+            if not matching_resumes:
+                logger.warning(f"⚠️  未找到简历数据：resume_id={resume_id}")
+                continue
+            
+            # 找到正确的简历
+            resume_data = None
+            if len(matching_resumes) == 1:
+                resume_data = matching_resumes[0]
+                logger.info(f"   唯一匹配，直接使用")
+            else:
+                # 有多个相同序号的简历，通过姓名匹配
+                logger.info(f"   多个匹配，通过姓名匹配: {name_from_result}")
+                if name_from_result:
+                    for resume in matching_resumes:
+                        name = resume.get('基本信息', {}).get('姓名', '')
+                        if name == name_from_result:
+                            resume_data = resume
+                            logger.info(f"     ✅ 找到匹配的简历: {name}")
+                            break
+                
+                # 如果没找到，使用第一个未处理的
+                if not resume_data:
+                    logger.warning(f"   ⚠️  无法通过姓名匹配，使用第一个未处理的简历")
+                    for resume in matching_resumes:
+                        name = resume.get('基本信息', {}).get('姓名', '')
+                        unique_key = f"{resume_id}_{name}"
+                        if unique_key not in processed_resumes:
+                            resume_data = resume
+                            logger.info(f"     ✅ 使用未处理的简历: {name}")
+                            break
+                
+                # 如果所有都处理过了，跳过
+                if not resume_data:
+                    logger.warning(f"   ⚠️  所有匹配的简历都已处理过，跳过")
+                    continue
+            
+            # 标记为已处理
+            name = resume_data.get('基本信息', {}).get('姓名', '')
+            unique_key = f"{resume_id}_{name}"
+            processed_resumes.add(unique_key)
+            
+            # 获取基本信息
+            basic_info = resume_data.get('基本信息', {})
+            name = basic_info.get('姓名', '')
+            resume_number = resume_data.get('序号', '')
+            
+            # 获取岗位信息
+            job_info = resume_data.get('岗位信息', {})
+            applied_position = job_info.get('应聘岗位', '')
+            
+            # 获取学习经历统计信息
+            education_info = resume_data.get('学习经历统计信息', {})
+            highest_education = education_info.get('最高学历', '')
+            highest_school = education_info.get('最高学历毕业院校', '')
+            highest_school_type = education_info.get('最高学历毕业院校类型', '')
+            
+            # 计算年龄
+            birth_date = basic_info.get('出生日期', '')
+            age = ''
+            if birth_date:
+                try:
+                    date_part = birth_date.split()[0] if ' ' in birth_date else birth_date
+                    parts = date_part.split('-')
+                    if len(parts) >= 1:
+                        year = int(parts[0])
+                        month = int(parts[1]) if len(parts) > 1 else 1
+                        day = int(parts[2]) if len(parts) > 2 else 1
+                        current_date = datetime.now()
+                        age_calc = current_date.year - year
+                        if (current_date.month, current_date.day) < (month, day):
+                            age_calc -= 1
+                        age = str(age_calc)
+                except:
+                    pass
+            
+            # 构建关键画像
+            key_profile_parts = []
+            if highest_education:
+                key_profile_parts.append(highest_education)
+            if highest_school:
+                key_profile_parts.append(highest_school)
+            if highest_school_type:
+                key_profile_parts.append(highest_school_type)
+            if age:
+                key_profile_parts.append(f"{age}岁")
+            
+            key_profile = ' | '.join(key_profile_parts) if key_profile_parts else ''
+            
+            # 获取现职务或岗位
+            current_position = basic_info.get('现职务或岗位', '')
+            if current_position:
+                key_profile += f"\n现任：{current_position}"
+            
+            # 构建AI初筛结果
+            ai_result = "拟通过" if result.passed else "拟淘汰"
+            
+            # 构建淘汰原因
+            failed_filters = [detail.get('filter_name') for detail in result.filter_details if not detail.get('passed')]
+            elimination_reason = '/'.join(failed_filters) if failed_filters else ''
+            
+            # 构建筛选条件详情
+            filter_details = []
+            for detail in result.filter_details:
+                filter_name = detail.get('filter_name', '')
+                passed = detail.get('passed', False)
+                method = detail.get('method', detail.get('source', '未知'))
+                reason = detail.get('reason', '')
+                
+                # 获取筛选详情
+                detail_info = detail.get('details', {})
+                detail_text = ''
+                if isinstance(detail_info, dict):
+                    detail_text = detail_info.get('detail', '')
+                
+                # 转换判断方法
+                if method == 'rule' or '规则' in str(method):
+                    method_display = '规则'
+                elif method == 'llm' or 'LLM' in str(method):
+                    method_display = 'LLM'
+                else:
+                    method_display = str(method)
+                
+                filter_detail = {
+                    "筛选条件": filter_name,
+                    "是否通过": "通过" if passed else "不通过",
+                    "判断方法": method_display,
+                    "原因说明": reason,
+                    "筛选详情": detail_text
+                }
+                filter_details.append(filter_detail)
+            
+            # 构建输出记录
+            output_record = {
+                "序号": int(resume_number) if str(resume_number).isdigit() else resume_number,
+                "姓名": name,
+                "关键画像": key_profile,
+                "应聘岗位": applied_position,
+                "AI初筛结果": ai_result,
+                "淘汰原因": elimination_reason,
+                "筛选条件详情": filter_details
+            }
+            
+            screening_results.append(output_record)
+            logger.info(f"   ✅ 添加到结果列表")
+        
+        logger.info(f"📊 最终筛选结果数: {len(screening_results)}")
+        
+        # 按序号排序
+        screening_results.sort(key=lambda x: x.get('序号', 0) if isinstance(x.get('序号'), (int, str)) and str(x.get('序号')).isdigit() else 0)
+        
+        # 统计信息
+        total_passed = sum(1 for r in screening_results if r["AI初筛结果"] == "拟通过")
+        total_count = len(screening_results)
+        
+        statistics = {
+            "total": total_count,
+            "passed": total_passed,
+            "rejected": total_count - total_passed,
+            "elapsed_time": f"{elapsed_time:.2f}秒"
+        }
+        
+        print(f"✅ AI 初筛完成，共处理 {total_count} 份简历")
+        print(f"   通过: {total_passed} 份")
+        print(f"   淘汰: {total_count - total_passed} 份")
+        print(f"   耗时: {elapsed_time:.2f}秒")
         
         # 保存结果到文件（可选）
         output_path = os.path.join(os.path.dirname(__file__), "简历初筛结果.json")
@@ -195,11 +410,7 @@ async def screen_resumes(
             "success": True,
             "message": "简历初筛完成",
             "data": screening_results,
-            "statistics": {
-                "total": len(screening_results),
-                "passed": sum(1 for r in screening_results if r["AI初筛结果"] == "拟通过"),
-                "rejected": sum(1 for r in screening_results if r["AI初筛结果"] == "拟淘汰")
-            }
+            "statistics": statistics
         })
         
     except Exception as e:
@@ -234,6 +445,7 @@ if __name__ == "__main__":
     print("=" * 80)
     print("📍 服务地址: http://127.0.0.1:8000")
     print("📖 API 文档: http://127.0.0.1:8000/docs")
+    print("💡 使用真实的 LLM 筛选引擎")
     print("=" * 80)
     print()
     

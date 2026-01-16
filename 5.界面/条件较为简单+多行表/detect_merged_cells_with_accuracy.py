@@ -229,11 +229,19 @@ def parse_excel_to_multirow_json(file_path):
         # 获取序号（第1列）
         序号_val = get_cell_value(ws, row_idx, 1, merged_map)
         
-        # 如果序号改变，说明是新的一个人
-        if 序号_val is not None and 序号_val != current_序号:
+        # 检查这一行的序号列是否是主单元格（合并单元格的左上角）
+        # 如果是主单元格，说明是新的一行数据开始
+        cell_coord = (row_idx, 1)
+        is_master_cell = cell_coord not in merged_map or merged_map[cell_coord] == cell_coord
+        
+        # 如果序号不为空且是主单元格，说明是新的一行数据开始
+        # 即使序号相同，如果是主单元格，也应该创建新的人（处理序号重复的情况）
+        if 序号_val is not None and is_master_cell:
+            # 如果已经有当前人员，先保存
             if current_person is not None:
                 result.append(current_person)
             
+            # 创建新的人员记录（即使序号相同，只要是主单元格就创建新记录）
             current_序号 = 序号_val
             current_person = initialize_person_data(序号_val)
         
@@ -401,7 +409,7 @@ def add_to_array(array_field, field_name, value, field_order):
 
 def main():
     """主函数"""
-    file_name = "（现RPA小工具流程）简历导入多行表.xlsx"
+    file_name = "（现RPA小工具流程）简历导入多行表-系统架构师_20260116_v2.xlsx"
     output_file = os.path.splitext(file_name)[0] + ".json"
     
     print("=" * 80)

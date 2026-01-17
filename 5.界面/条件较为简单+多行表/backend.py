@@ -419,7 +419,7 @@ async def screen_resumes(
         print(f"   耗时: {elapsed_time:.2f}秒")
         
         # 保存结果到文件（可选）
-        output_path = os.path.join(os.path.dirname(__file__), "简历初筛结果.json")
+        output_path = os.path.join(os.path.dirname(__file__), "output", "简历初筛结果.json")
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(screening_results, f, ensure_ascii=False, indent=2)
         

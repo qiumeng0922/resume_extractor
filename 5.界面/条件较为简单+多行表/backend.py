@@ -147,7 +147,7 @@ async def screen_resumes(
         data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
         os.makedirs(data_dir, exist_ok=True)
         
-        # 生成JSON文件名（基于上传的文件名）
+        # 生成简历JSON文件名（基于上传的文件名）
         resume_json_filename = os.path.splitext(resume_file.filename)[0] + ".json"
         resume_json_path = os.path.join(data_dir, resume_json_filename)
         
@@ -156,34 +156,35 @@ async def screen_resumes(
         
         print(f"💾 简历JSON已保存到: {resume_json_path}")
         
-        # 🎯 关键修改：直接使用 7.LLM_resume_filter 中的岗位JSON文件
-        # 这样可以确保与直接运行 resume_filter.py 的结果完全一致
-        print(f"⏳ 正在加载岗位需求数据（使用7.LLM_resume_filter中的JSON文件）...")
-        
-        # 获取当前文件所在目录（5.界面/条件较为简单+多行表）
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        # 向上两层到项目根目录（11.AI简历可行性评估）
-        # 5.界面/条件较为简单+多行表 -> 5.界面 -> 11.AI简历可行性评估
-        project_root = os.path.dirname(os.path.dirname(current_dir))
-        # 构建完整路径
-        llm_filter_job_file = os.path.join(
-            project_root,
-            "7.LLM_resume_filter/data/条件要求较简单的部分岗位岗位要求-模拟数据_规整后_去掉系统外.json"
-        )
-        
-        if not os.path.exists(llm_filter_job_file):
-            raise HTTPException(
-                status_code=500, 
-                detail=f"岗位数据文件不存在: {llm_filter_job_file}"
-            )
-        
-        with open(llm_filter_job_file, 'r', encoding='utf-8') as f:
-            positions_data = json.load(f)
+        # 解析岗位文件
+        print(f"⏳ 正在解析岗位文件: {position_file.filename}")
+        positions_data = parse_excel_to_position_json(position_path)
         
         if not positions_data:
-            raise HTTPException(status_code=400, detail="岗位需求数据加载失败")
+            raise HTTPException(status_code=400, detail="岗位文件解析失败")
         
-        print(f"✅ 岗位需求加载完成，共 {len(positions_data)} 个岗位（来自7.LLM_resume_filter）")
+        print(f"✅ 岗位解析完成，共 {len(positions_data)} 个岗位")
+        
+        # 生成岗位JSON文件名（基于上传的文件名）
+        position_base_name = os.path.splitext(position_file.filename)[0]
+        
+        # 1. 保存原始文件名（包含原文和规整后）
+        position_json_filename = position_base_name + ".json"
+        position_json_path = os.path.join(data_dir, position_json_filename)
+        
+        with open(position_json_path, 'w', encoding='utf-8') as f:
+            json.dump(positions_data, f, ensure_ascii=False, indent=2)
+        
+        print(f"💾 岗位JSON已保存到: {position_json_path}")
+        
+        # 2. 保存带"_规整后"后缀的文件名（同样包含原文和规整后）
+        position_normalized_filename = position_base_name + "_规整后.json"
+        position_normalized_path = os.path.join(data_dir, position_normalized_filename)
+        
+        with open(position_normalized_path, 'w', encoding='utf-8') as f:
+            json.dump(positions_data, f, ensure_ascii=False, indent=2)
+        
+        print(f"💾 岗位JSON（规整后）已保存到: {position_normalized_path}")
         
         # 直接调用 LLM 筛选模块
         print("⏳ 正在执行 AI 筛选...")

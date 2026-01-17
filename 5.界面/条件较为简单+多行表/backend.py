@@ -22,17 +22,15 @@ import uvicorn
 
 # 导入现有的解析脚本
 import sys
-sys.path.append(os.path.dirname(__file__))
+current_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, current_dir)
 
-# 导入解析函数
-from detect_merged_cells_with_accuracy import parse_excel_to_multirow_json
-from detect_merged_cells_with_accuracy_position_adjust import parse_excel_to_position_json
+# 导入解析函数（从 parsers 目录）
+from parsers.detect_merged_cells_with_accuracy import parse_excel_to_multirow_json
+from parsers.detect_merged_cells_with_accuracy_position_adjust import parse_excel_to_position_json
+from parsers.clean_external import clean_position_data
 
-# 导入 LLM 筛选模块
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
-llm_filter_path = os.path.join(project_root, "7.LLM_resume_filter")
-sys.path.insert(0, llm_filter_path)
-
+# 导入 LLM 筛选模块（从本地目录）
 from core.screener import ResumeScreener
 from managers.llm_manager import get_model_manager
 from utils.logger_config import setup_logger
@@ -71,11 +69,12 @@ async def startup_event():
     else:
         logger.warning("⚠️  模型管理器未初始化，LLM筛选功能不可用")
     
-    # 专业库路径
-    major_library_path = os.path.join(llm_filter_path, "data/专业库.json")
+    # 专业库路径（使用本地 data 目录）
+    data_dir = os.path.join(current_dir, "data")
+    major_library_path = os.path.join(data_dir, "专业库.json")
     
-    # 院校库路径
-    school_library_path = os.path.join(llm_filter_path, "data/院校库.json")
+    # 院校库路径（使用本地 data 目录）
+    school_library_path = os.path.join(data_dir, "院校库.json")
     
     # 初始化筛选器
     screener = ResumeScreener(model_manager=model_manager, major_library_path=major_library_path, school_library_path=school_library_path)
@@ -166,10 +165,7 @@ async def screen_resumes(
         print(f"✅ 岗位解析完成，共 {len(positions_data)} 个岗位")
         
         # 生成岗位JSON文件名（基于上传的文件名）
-        position_base_name = os.path.splitext(position_file.filename)[0]
-        
-        # 1. 保存原始文件名（包含原文和规整后）
-        position_json_filename = position_base_name + ".json"
+        position_json_filename = os.path.splitext(position_file.filename)[0] + ".json"
         position_json_path = os.path.join(data_dir, position_json_filename)
         
         with open(position_json_path, 'w', encoding='utf-8') as f:
@@ -177,14 +173,21 @@ async def screen_resumes(
         
         print(f"💾 岗位JSON已保存到: {position_json_path}")
         
-        # 2. 保存带"_规整后"后缀的文件名（同样包含原文和规整后）
-        position_normalized_filename = position_base_name + "_规整后.json"
-        position_normalized_path = os.path.join(data_dir, position_normalized_filename)
+        # 执行清理系统外数据处理
+        print(f"⏳ 正在清理系统外数据...")
+        cleaned_positions_data = clean_position_data(positions_data)
         
-        with open(position_normalized_path, 'w', encoding='utf-8') as f:
-            json.dump(positions_data, f, ensure_ascii=False, indent=2)
+        # 生成清理后的JSON文件名（带"_去掉系统外"后缀）
+        position_json_cleaned_filename = os.path.splitext(position_file.filename)[0] + "_去掉系统外.json"
+        position_json_cleaned_path = os.path.join(data_dir, position_json_cleaned_filename)
         
-        print(f"💾 岗位JSON（规整后）已保存到: {position_normalized_path}")
+        with open(position_json_cleaned_path, 'w', encoding='utf-8') as f:
+            json.dump(cleaned_positions_data, f, ensure_ascii=False, indent=2)
+        
+        print(f"💾 清理后的岗位JSON已保存到: {position_json_cleaned_path}")
+        
+        # 使用清理后的数据进行筛选
+        positions_data = cleaned_positions_data
         
         # 直接调用 LLM 筛选模块
         print("⏳ 正在执行 AI 筛选...")

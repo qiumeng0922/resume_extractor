@@ -13,6 +13,8 @@ import shutil
 import tempfile
 import asyncio
 import time
+import webbrowser
+import threading
 from typing import List
 from datetime import datetime
 from fastapi import FastAPI, UploadFile, File, HTTPException
@@ -468,6 +470,21 @@ if __name__ == "__main__":
     print("💡 使用真实的 LLM 筛选引擎")
     print("=" * 80)
     print()
+    
+    # # 获取 index.html 的绝对路径
+    # current_dir = os.path.dirname(os.path.abspath(__file__))
+    # index_html_path = os.path.join(current_dir, "index.html")
+    # index_html_url = f"file://{index_html_path}"
+    
+    # def open_browser():
+    #     """延迟打开浏览器"""
+    #     time.sleep(1.5)  # 等待服务器启动
+    #     print(f"🌐 正在打开浏览器: {index_html_url}")
+    #     webbrowser.open(index_html_url)
+    
+    # # 在后台线程中打开浏览器
+    # browser_thread = threading.Thread(target=open_browser, daemon=True)
+    # browser_thread.start()
     
     # 启动服务
     uvicorn.run(

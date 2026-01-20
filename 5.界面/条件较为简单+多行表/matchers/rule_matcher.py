@@ -164,24 +164,24 @@ class RuleMatcher:
                             if edu in edu_req:
                                 req_level = max(req_level, level)
                 
-                # 提取简历中的学历等级
+                # 提取简历中的学历等级（只使用最高学历）
                 resume_level = 0
                 for edu, level in edu_levels.items():
-                    if edu in highest_edu or edu in fulltime_edu:
+                    if edu in highest_edu:
                         resume_level = max(resume_level, level)
                 
-                # 检查简历学校是否满足985/211要求
+                # 检查简历学校是否满足985/211要求（只使用最高学历毕业院校类型）
                 has_985_211_resume = False
                 if has_985_211_in_education and required_attributes:
                     # 优先使用院校库判断
                     if highest_school and self.school_library:
                         has_985_211_resume = self._check_school_attributes(highest_school, required_attributes)
                     else:
-                        # 降级使用学校类型字段
-                        has_985_211_resume = "985" in highest_school_type or "211" in highest_school_type or "985" in fulltime_school_type or "211" in fulltime_school_type
+                        # 降级使用学校类型字段（只使用最高学历毕业院校类型）
+                        has_985_211_resume = "985" in highest_school_type or "211" in highest_school_type
                 else:
-                    # 如果没有985/211要求，检查学校类型字段作为备用
-                    has_985_211_resume = "985" in highest_school_type or "211" in highest_school_type or "985" in fulltime_school_type or "211" in fulltime_school_type
+                    # 如果没有985/211要求，检查学校类型字段作为备用（只使用最高学历毕业院校类型）
+                    has_985_211_resume = "985" in highest_school_type or "211" in highest_school_type
                 
                 # 判断学历要求是否匹配
                 if has_985_211_in_education:
@@ -197,8 +197,8 @@ class RuleMatcher:
                 else:
                     matched = matched_ranking and matched_education
                 
-                # 构建详细信息
-                resume_info = f"简历信息：最高学历={highest_edu}，全日制学历={fulltime_edu}，最高学历毕业院校={highest_school}，学校类型={highest_school_type}"
+                # 构建详细信息（只使用最高学历相关字段）
+                resume_info = f"简历信息：最高学历={highest_edu}，最高学历毕业院校={highest_school}，学校类型={highest_school_type}"
                 requirement_info = f"岗位要求：条件={condition}，排名要求={rankings}，学历要求={educations}"
                 
                 # 将学历等级转换为可读名称
@@ -238,7 +238,6 @@ class RuleMatcher:
                         "method": method,
                         "detail": detail,
                         "resume_education": highest_edu,
-                        "resume_fulltime_education": fulltime_edu,
                         "resume_school_type": highest_school_type,
                         "requirement": requirement
                     }
@@ -249,15 +248,14 @@ class RuleMatcher:
                         "method": method,
                         "detail": detail,
                         "resume_education": highest_edu,
-                        "resume_fulltime_education": fulltime_edu,
                         "resume_school_type": highest_school_type,
                         "requirement": requirement
                     }
             elif "原文" in requirement:
-                # 只有原文，使用文本匹配
+                # 只有原文，使用文本匹配（只使用最高学历相关字段）
                 requirement_text = requirement["原文"]
-                return self.match_education_rule_text(requirement_text, highest_edu, fulltime_edu, 
-                                                       highest_school_type, fulltime_school_type)
+                return self.match_education_rule_text(requirement_text, highest_edu, "", 
+                                                       highest_school_type, "")
         
         # 默认处理
         method = "规则匹配-默认通过"
@@ -289,15 +287,15 @@ class RuleMatcher:
             if edu in requirement_text:
                 req_level = max(req_level, level)
         
-        # 提取简历中的学历等级
+        # 提取简历中的学历等级（只使用最高学历）
         resume_level = 0
         for edu, level in edu_levels.items():
-            if edu in highest_edu or edu in fulltime_edu:
+            if edu in highest_edu:
                 resume_level = max(resume_level, level)
         
-        # 检查985/211要求
+        # 检查985/211要求（只使用最高学历毕业院校类型）
         has_985_211_req = "985" in requirement_text or "211" in requirement_text
-        has_985_211_resume = "985" in highest_school_type or "211" in highest_school_type or "985" in fulltime_school_type or "211" in fulltime_school_type
+        has_985_211_resume = "985" in highest_school_type or "211" in highest_school_type
         
         detail_parts = []
         if has_985_211_req:
@@ -381,7 +379,7 @@ class RuleMatcher:
                 experience_matched = False
                 if experiences:
                     # 这里可以进一步检查工作经历
-                    experience_matched = True  # 简化处理
+                    experience_matched = False # 简化处理
                 
                 # 判断：根据条件类型
                 if condition == "或":

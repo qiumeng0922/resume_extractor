@@ -59,7 +59,7 @@ class LLMMatcher:
             # 获取当前年份，用于明确"近3年"的定义
             from datetime import datetime
             current_year = datetime.now().year
-            recent_3_years = f"{current_year-2}年、{current_year-1}年、{current_year}年"
+            recent_3_years = f"{current_year-3}年、{current_year-2}年、{current_year-1}年"
             
             prompt = f"""
 # 核心任务
@@ -88,6 +88,7 @@ class LLMMatcher:
 - 禁止超出50字写原因。
 - 禁止结果与原因矛盾（如原因说符合，结果却写不通过）
 - 禁止将{recent_3_years}之外的年份纳入"近3年"的判断范围"""
+ #           print(prompt)
             
             logger.debug("绩效筛选：使用LLM判断，开始调用模型")
             

@@ -19,12 +19,32 @@ from typing import List
 from datetime import datetime
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
 import uvicorn
 
 # 导入现有的解析脚本
 import sys
-current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# 处理PyInstaller打包后的资源路径
+def get_resource_path(relative_path):
+    """获取资源文件的绝对路径，兼容PyInstaller打包后的环境"""
+    try:
+        # PyInstaller打包后会设置_MEIPASS属性
+        base_path = sys._MEIPASS
+    except AttributeError:
+        # 开发环境，使用当前文件所在目录
+        base_path = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(base_path, relative_path)
+
+# 获取当前目录（兼容打包环境）
+if getattr(sys, 'frozen', False):
+    # 打包后的环境
+    current_dir = sys._MEIPASS
+else:
+    # 开发环境
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+
 sys.path.insert(0, current_dir)
 
 # 导入解析函数（从 parsers 目录）
@@ -41,6 +61,13 @@ from utils.logger_config import setup_logger
 logger = setup_logger("backend_service")
 
 app = FastAPI(title="AI简历初筛系统", version="2.0.0")
+
+# 配置静态文件服务（用于提供前端页面）
+# 注意：在打包环境中，current_dir已经通过上面的代码正确设置了
+try:
+    app.mount("/static", StaticFiles(directory=current_dir), name="static")
+except Exception as e:
+    logger.warning(f"无法挂载静态文件服务: {str(e)}")
 
 # 配置 CORS
 app.add_middleware(
@@ -71,11 +98,11 @@ async def startup_event():
     else:
         logger.warning("⚠️  模型管理器未初始化，LLM筛选功能不可用")
     
-    # 专业库路径（使用本地 data 目录）
-    data_dir = os.path.join(current_dir, "data")
+    # 专业库路径（使用本地 data 目录，兼容打包环境）
+    data_dir = get_resource_path("data")
     major_library_path = os.path.join(data_dir, "专业库.json")
     
-    # 院校库路径（使用本地 data 目录）
+    # 院校库路径（使用本地 data 目录，兼容打包环境）
     school_library_path = os.path.join(data_dir, "院校库.json")
     
     # 初始化筛选器
@@ -86,7 +113,10 @@ async def startup_event():
 
 @app.get("/")
 async def root():
-    """根路径"""
+    """根路径 - 返回前端页面"""
+    index_path = get_resource_path("index.html")
+    if os.path.exists(index_path):
+        return FileResponse(index_path)
     return {
         "message": "AI简历初筛系统",
         "version": "2.0.0",
@@ -145,7 +175,14 @@ async def screen_resumes(
         print(f"✅ 简历解析完成，共 {len(resumes_data)} 条记录")
         
         # 保存解析后的JSON到data文件夹
-        data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+        # 在打包环境中，使用exe所在目录的data文件夹（而不是临时目录）
+        if getattr(sys, 'frozen', False):
+            # 打包环境：使用exe所在目录
+            exe_dir = os.path.dirname(sys.executable)
+            data_dir = os.path.join(exe_dir, "data")
+        else:
+            # 开发环境：使用项目目录
+            data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
         os.makedirs(data_dir, exist_ok=True)
         
         # 生成简历JSON文件名（基于上传的文件名）
@@ -421,7 +458,16 @@ async def screen_resumes(
         print(f"   耗时: {elapsed_time:.2f}秒")
         
         # 保存结果到文件（可选）
-        output_path = os.path.join(os.path.dirname(__file__), "output", "简历初筛结果.json")
+        # 在打包环境中，使用exe所在目录的output文件夹
+        if getattr(sys, 'frozen', False):
+            # 打包环境：使用exe所在目录
+            exe_dir = os.path.dirname(sys.executable)
+            output_dir = os.path.join(exe_dir, "output")
+        else:
+            # 开发环境：使用项目目录
+            output_dir = os.path.join(os.path.dirname(__file__), "output")
+        os.makedirs(output_dir, exist_ok=True)
+        output_path = os.path.join(output_dir, "简历初筛结果.json")
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(screening_results, f, ensure_ascii=False, indent=2)
         
@@ -471,20 +517,23 @@ if __name__ == "__main__":
     print("=" * 80)
     print()
     
-    # # 获取 index.html 的绝对路径
-    # current_dir = os.path.dirname(os.path.abspath(__file__))
-    # index_html_path = os.path.join(current_dir, "index.html")
-    # index_html_url = f"file://{index_html_path}"
+    # 前端页面地址（根路径直接返回 index.html）
+    frontend_url = "http://127.0.0.1:8000"
     
-    # def open_browser():
-    #     """延迟打开浏览器"""
-    #     time.sleep(1.5)  # 等待服务器启动
-    #     print(f"🌐 正在打开浏览器: {index_html_url}")
-    #     webbrowser.open(index_html_url)
+    def open_browser():
+        """延迟打开浏览器"""
+        time.sleep(2)  # 等待服务器完全启动
+        try:
+            print(f"🌐 正在自动打开浏览器: {frontend_url}")
+            webbrowser.open(frontend_url)
+            print("✅ 浏览器已打开")
+        except Exception as e:
+            print(f"⚠️  无法自动打开浏览器: {str(e)}")
+            print(f"   请手动访问: {frontend_url}")
     
-    # # 在后台线程中打开浏览器
-    # browser_thread = threading.Thread(target=open_browser, daemon=True)
-    # browser_thread.start()
+    # 在后台线程中打开浏览器
+    browser_thread = threading.Thread(target=open_browser, daemon=True)
+    browser_thread.start()
     
     # 启动服务
     uvicorn.run(

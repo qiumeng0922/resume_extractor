@@ -12,10 +12,10 @@ jobs:
     
     steps:
     - name: 检出代码
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     
     - name: 设置 Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
     
@@ -34,6 +34,7 @@ jobs:
         PYTHONIOENCODING: utf-8
     
     - name: 创建部署包目录结构
+      shell: cmd
       run: |
         cd "5.界面/条件较为简单+多行表"
         if not exist "部署包" mkdir "部署包"
@@ -43,20 +44,21 @@ jobs:
         if not exist "部署包\logs" mkdir "部署包\logs"
     
     - name: 上传构建产物（EXE文件）
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: windows-exe-standalone
         path: "5.界面/条件较为简单+多行表/dist/AI简历初筛系统.exe"
         retention-days: 30
     
     - name: 上传完整部署包
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: windows-deployment-package
         path: "5.界面/条件较为简单+多行表/部署包/"
         retention-days: 30
     
     - name: 显示构建信息
+      shell: cmd
       run: |
         cd "5.界面/条件较为简单+多行表"
         echo "✅ 构建完成！"

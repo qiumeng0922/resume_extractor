@@ -365,6 +365,21 @@ async def screen_resumes(
                 if isinstance(detail_info, dict):
                     detail_text = detail_info.get('detail', '')
                 
+                # 格式化原因说明：去掉"原文"字段
+                import re
+                # 如果reason中包含requirement字典，去掉"原文"字段
+                if "'原文'" in reason or '"原文"' in reason:
+                    # 使用正则表达式去掉"原文"字段及其值，并处理多余的逗号
+                    reason = re.sub(r"['\"]原文['\"]\s*:\s*[^,}]+,\s*", "", reason)  # 先处理后面有逗号的情况
+                    reason = re.sub(r",?\s*['\"]原文['\"]\s*:\s*[^,}]+", "", reason)  # 再处理其他情况
+                    # 清理可能留下的多余逗号和空格
+                    reason = re.sub(r",\s*,", ",", reason)  # 去掉连续逗号
+                    reason = re.sub(r"{\s*,", "{", reason)  # 去掉{后的逗号
+                
+                # 在筛选详情末尾添加逗号（如果detail_text不为空）
+                if detail_text:
+                    detail_text = detail_text.rstrip() + ','
+                
                 # 转换判断方法
                 if method == 'rule' or '规则' in str(method):
                     method_display = '规则'

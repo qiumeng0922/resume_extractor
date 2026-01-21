@@ -101,8 +101,20 @@ class RuleMatcher:
         return False
     
     def match_education_rule(self, requirement: Dict, highest_edu: str, fulltime_edu: str, 
-                            highest_school: str, highest_school_type: str, fulltime_school_type: str) -> Dict:
-        """匹配学历规则"""
+                            highest_school: str, highest_school_type: str, fulltime_school_type: str,
+                            highest_education_form: str = "") -> Dict:
+        """
+        匹配学历规则
+        
+        Args:
+            requirement: 岗位学历要求
+            highest_edu: 简历最高学历
+            fulltime_edu: 简历全日制学历（保留参数，未使用）
+            highest_school: 简历最高学历毕业院校
+            highest_school_type: 简历最高学历毕业院校类型
+            fulltime_school_type: 简历全日制毕业院校类型（保留参数，未使用）
+            highest_education_form: 简历最高学历的学习形式（"全日制教育"或"非全日制教育"）
+        """
         edu_levels = {
             "博士": 5,
             "硕士研究生": 4,
@@ -149,9 +161,13 @@ class RuleMatcher:
                 req_level = 0
                 has_985_211_in_education = False  # 初始化变量
                 required_attributes = []  # 需要的学校属性
+                requires_fulltime = False  # 是否要求全日制
                 
                 for edu_req in educations:
                     if isinstance(edu_req, str):
+                        # 检查学历要求中是否包含"全日制"关键词
+                        if "全日制" in edu_req:
+                            requires_fulltime = True
                         # 检查学历要求中是否包含985/211
                         if "985" in edu_req or "211" in edu_req:
                             has_985_211_in_education = True
@@ -163,6 +179,11 @@ class RuleMatcher:
                         for edu, level in edu_levels.items():
                             if edu in edu_req:
                                 req_level = max(req_level, level)
+                
+                # 检查排名要求中是否包含"全日制"关键词
+                for rank_req in rankings:
+                    if isinstance(rank_req, str) and "全日制" in rank_req:
+                        requires_fulltime = True
                 
                 # 提取简历中的学历等级（只使用最高学历）
                 resume_level = 0
@@ -183,13 +204,26 @@ class RuleMatcher:
                     # 如果没有985/211要求，检查学校类型字段作为备用（只使用最高学历毕业院校类型）
                     has_985_211_resume = "985" in highest_school_type or "211" in highest_school_type
                 
+                # 检查全日制/非全日制要求
+                matched_fulltime = True  # 默认匹配（如果没有全日制要求）
+                if requires_fulltime:
+                    # 如果岗位要求全日制，简历必须是全日制
+                    if highest_education_form == "全日制教育":
+                        matched_fulltime = True
+                    elif highest_education_form == "非全日制教育" or "非全日制" in highest_education_form:
+                        matched_fulltime = False
+                    else:
+                        # 如果学习形式字段为空，尝试从其他字段判断
+                        # 如果无法确定，默认不匹配（严格模式）
+                        matched_fulltime = False
+                
                 # 判断学历要求是否匹配
                 if has_985_211_in_education:
-                    # 如果学历要求中包含985/211，必须同时满足学历等级和学校属性
-                    matched_education = (resume_level >= req_level) and has_985_211_resume
+                    # 如果学历要求中包含985/211，必须同时满足学历等级、学校属性和全日制要求
+                    matched_education = (resume_level >= req_level) and has_985_211_resume and matched_fulltime
                 else:
-                    # 如果学历要求中不包含985/211，只需要满足学历等级
-                    matched_education = (resume_level >= req_level)
+                    # 如果学历要求中不包含985/211，需要满足学历等级和全日制要求
+                    matched_education = (resume_level >= req_level) and matched_fulltime
                 
                 # 判断：如果是"或"条件，满足任一即可
                 if condition == "或":
@@ -198,7 +232,7 @@ class RuleMatcher:
                     matched = matched_ranking and matched_education
                 
                 # 构建详细信息（只使用最高学历相关字段）
-                resume_info = f"简历信息：最高学历={highest_edu}，最高学历毕业院校={highest_school}，学校类型={highest_school_type}"
+                resume_info = f"简历信息：最高学历={highest_edu}，最高学历毕业院校={highest_school}，学校类型={highest_school_type}，学习形式={highest_education_form if highest_education_form else '未明确'}"
                 requirement_info = f"岗位要求：条件={condition}，排名要求={rankings}，学历要求={educations}"
                 
                 # 将学历等级转换为可读名称
@@ -219,10 +253,18 @@ class RuleMatcher:
                         school_check_method = "院校库" if (highest_school and self.school_library) else "学校类型字段"
                         edu_level_desc = f"学历等级：{resume_edu_name}（{resume_level}级）≥{req_edu_name}（{req_level}级）"
                         school_attr_desc = f"学校属性：{'满足' if has_985_211_resume else '不满足'}985/211要求（判断方法：{school_check_method}）"
-                        match_parts.append(f"学历匹配={matched_education}（{edu_level_desc}，{school_attr_desc}）")
+                        fulltime_desc = f"学习形式：{'满足' if matched_fulltime else '不满足'}全日制要求（简历：{highest_education_form if highest_education_form else '未明确'}，岗位要求：全日制）" if requires_fulltime else ""
+                        if fulltime_desc:
+                            match_parts.append(f"学历匹配={matched_education}（{edu_level_desc}，{school_attr_desc}，{fulltime_desc}）")
+                        else:
+                            match_parts.append(f"学历匹配={matched_education}（{edu_level_desc}，{school_attr_desc}）")
                     else:
                         edu_level_desc = f"学历等级：{resume_edu_name}（{resume_level}级）≥{req_edu_name}（{req_level}级）"
-                        match_parts.append(f"学历匹配={matched_education}（{edu_level_desc}）")
+                        fulltime_desc = f"学习形式：{'满足' if matched_fulltime else '不满足'}全日制要求（简历：{highest_education_form if highest_education_form else '未明确'}，岗位要求：全日制）" if requires_fulltime else ""
+                        if fulltime_desc:
+                            match_parts.append(f"学历匹配={matched_education}（{edu_level_desc}，{fulltime_desc}）")
+                        else:
+                            match_parts.append(f"学历匹配={matched_education}（{edu_level_desc}）")
                 
                 match_detail = f"满足{'任一' if condition == '或' else '所有'}条件：{', '.join(match_parts)}"
                 detail = f"{resume_info}；{requirement_info}；{match_detail}"
@@ -232,9 +274,12 @@ class RuleMatcher:
                 logger.debug(f"学历筛选结果：{match_detail}")
                 
                 if matched:
+                    reason_suffix = ""
+                    if requires_fulltime and not matched_fulltime:
+                        reason_suffix = f"（不满足全日制要求：简历为{highest_education_form if highest_education_form else '非全日制'}）"
                     return {
                         "matched": True,
-                        "reason": f"学历符合要求：简历{highest_edu}（{highest_school_type}），岗位要求{requirement}",
+                        "reason": f"学历符合要求：简历{highest_edu}（{highest_school_type}）{reason_suffix}，岗位要求{requirement}",
                         "method": method,
                         "detail": detail,
                         "resume_education": highest_edu,
@@ -242,9 +287,12 @@ class RuleMatcher:
                         "requirement": requirement
                     }
                 else:
+                    reason_suffix = ""
+                    if requires_fulltime and not matched_fulltime:
+                        reason_suffix = f"（不满足全日制要求：简历为{highest_education_form if highest_education_form else '非全日制'}，岗位要求全日制）"
                     return {
                         "matched": False,
-                        "reason": f"学历不符合要求：简历{highest_edu}（{highest_school_type}），岗位要求{requirement}",
+                        "reason": f"学历不符合要求：简历{highest_edu}（{highest_school_type}）{reason_suffix}，岗位要求{requirement}",
                         "method": method,
                         "detail": detail,
                         "resume_education": highest_edu,
@@ -255,7 +303,7 @@ class RuleMatcher:
                 # 只有原文，使用文本匹配（只使用最高学历相关字段）
                 requirement_text = requirement["原文"]
                 return self.match_education_rule_text(requirement_text, highest_edu, "", 
-                                                       highest_school_type, "")
+                                                       highest_school_type, "", highest_education_form)
         
         # 默认处理
         method = "规则匹配-默认通过"
@@ -269,7 +317,8 @@ class RuleMatcher:
         }
     
     def match_education_rule_text(self, requirement_text: str, highest_edu: str, fulltime_edu: str,
-                                  highest_school_type: str, fulltime_school_type: str) -> Dict:
+                                  highest_school_type: str, fulltime_school_type: str,
+                                  highest_education_form: str = "") -> Dict:
         """匹配学历规则（文本格式）"""
         edu_levels = {
             "博士": 5,
@@ -297,14 +346,29 @@ class RuleMatcher:
         has_985_211_req = "985" in requirement_text or "211" in requirement_text
         has_985_211_resume = "985" in highest_school_type or "211" in highest_school_type
         
+        # 检查全日制要求
+        requires_fulltime = "全日制" in requirement_text
+        matched_fulltime = True  # 默认匹配（如果没有全日制要求）
+        if requires_fulltime:
+            # 如果岗位要求全日制，简历必须是全日制
+            if highest_education_form == "全日制教育":
+                matched_fulltime = True
+            elif highest_education_form == "非全日制教育" or "非全日制" in highest_education_form:
+                matched_fulltime = False
+            else:
+                # 如果学习形式字段为空，默认不匹配（严格模式）
+                matched_fulltime = False
+        
         detail_parts = []
         if has_985_211_req:
-            matched = has_985_211_resume or resume_level >= req_level
+            matched = (has_985_211_resume or resume_level >= req_level) and matched_fulltime
             detail_parts.append(f"985/211要求：{'匹配' if has_985_211_resume else '不匹配'}")
         else:
-            matched = resume_level >= req_level
+            matched = resume_level >= req_level and matched_fulltime
         
         detail_parts.append(f"学历等级：简历{resume_level}级，要求≥{req_level}级")
+        if requires_fulltime:
+            detail_parts.append(f"学习形式：{'满足' if matched_fulltime else '不满足'}全日制要求（简历：{highest_education_form if highest_education_form else '未明确'}）")
         detail = "；".join(detail_parts)
         
         if matched:

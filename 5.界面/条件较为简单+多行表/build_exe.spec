@@ -85,13 +85,39 @@ hiddenimports = [
     # LangChain相关
     'langchain_openai',
     'langchain_openai.chat_models',
+    
+    # FastAPI核心依赖
+    'starlette',
+    'starlette.applications',
+    'starlette.middleware',
+    'starlette.routing',
+    'starlette.responses',
+    'pydantic',
+    'pydantic.fields',
+    'pydantic.main',
+    'anyio',
+    'anyio.streams',
+    'sniffio',
+    'httptools',
+    'websockets',
+    'websockets.server',
+    'websockets.client',
 ]
 
 # 收集所有子模块
-hiddenimports.extend(collect_submodules('fastapi'))
-hiddenimports.extend(collect_submodules('uvicorn'))
-hiddenimports.extend(collect_submodules('openpyxl'))
-hiddenimports.extend(collect_submodules('pandas'))
+try:
+    hiddenimports.extend(collect_submodules('fastapi'))
+    hiddenimports.extend(collect_submodules('uvicorn'))
+    hiddenimports.extend(collect_submodules('openpyxl'))
+    hiddenimports.extend(collect_submodules('pandas'))
+    hiddenimports.extend(collect_submodules('starlette'))  # FastAPI依赖
+    hiddenimports.extend(collect_submodules('pydantic'))  # FastAPI依赖
+    hiddenimports.extend(collect_submodules('anyio'))  # FastAPI依赖
+    hiddenimports.extend(collect_submodules('sniffio'))  # FastAPI依赖
+    hiddenimports.extend(collect_submodules('httptools'))  # uvicorn依赖
+    hiddenimports.extend(collect_submodules('websockets'))  # uvicorn依赖
+except:
+    pass
 
 a = Analysis(
     ['backend.py'],

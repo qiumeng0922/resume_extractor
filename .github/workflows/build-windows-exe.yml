@@ -44,12 +44,51 @@ jobs:
         pip install -r requirements.txt
         pip install pyinstaller
     
-    - name: 构建 EXE（使用spec文件）
+    - name: 构建 EXE（使用collect-all确保包含所有依赖）
       run: |
         cd "5.界面/条件较为简单+多行表"
-        pyinstaller build_exe.spec --clean
+        pyinstaller --onefile `
+          --name "AI简历初筛系统" `
+          --add-data "data;data" `
+          --add-data "index.html;." `
+          --add-data "config.py;." `
+          --hidden-import=fastapi `
+          --hidden-import=uvicorn `
+          --hidden-import=starlette `
+          --hidden-import=pydantic `
+          --hidden-import=websockets `
+          --hidden-import=httptools `
+          --hidden-import=anyio `
+          --hidden-import=sniffio `
+          --hidden-import=langchain_openai `
+          --hidden-import=langchain_core `
+          --hidden-import=openpyxl `
+          --hidden-import=pandas `
+          --hidden-import=numpy `
+          --hidden-import=parsers.detect_merged_cells_with_accuracy `
+          --hidden-import=parsers.detect_merged_cells_with_accuracy_position_adjust `
+          --hidden-import=parsers.clean_external `
+          --hidden-import=core.screener `
+          --hidden-import=core.models `
+          --hidden-import=core.toolkit `
+          --hidden-import=managers.llm_manager `
+          --hidden-import=utils.logger_config `
+          --hidden-import=utils.data_loader `
+          --hidden-import=utils.calculator `
+          --hidden-import=utils.major_library `
+          --collect-all fastapi `
+          --collect-all uvicorn `
+          --collect-all starlette `
+          --collect-all pydantic `
+          --collect-all websockets `
+          --collect-all langchain_openai `
+          --collect-all langchain_core `
+          --collect-all openpyxl `
+          --collect-all pandas `
+          backend.py
       env:
         PYTHONIOENCODING: utf-8
+      shell: pwsh
     
     - name: 创建部署包目录结构
       shell: cmd

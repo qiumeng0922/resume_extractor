@@ -1,0 +1,65 @@
+name: 构建 Windows EXE
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v3
+    
+    - name: 设置 Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: 安装依赖
+      run: |
+        python -m pip install --upgrade pip
+        cd "5.界面/条件较为简单+多行表"
+        pip install -r requirements.txt
+        pip install pyinstaller
+    
+    - name: 构建 EXE（使用spec文件）
+      run: |
+        cd "5.界面/条件较为简单+多行表"
+        pyinstaller build_exe.spec --clean
+      env:
+        PYTHONIOENCODING: utf-8
+    
+    - name: 创建部署包目录结构
+      run: |
+        cd "5.界面/条件较为简单+多行表"
+        if not exist "部署包" mkdir "部署包"
+        copy dist\AI简历初筛系统.exe 部署包\
+        if not exist "部署包\data" mkdir "部署包\data"
+        if not exist "部署包\output" mkdir "部署包\output"
+        if not exist "部署包\logs" mkdir "部署包\logs"
+    
+    - name: 上传构建产物（EXE文件）
+      uses: actions/upload-artifact@v3
+      with:
+        name: windows-exe-standalone
+        path: "5.界面/条件较为简单+多行表/dist/AI简历初筛系统.exe"
+        retention-days: 30
+    
+    - name: 上传完整部署包
+      uses: actions/upload-artifact@v3
+      with:
+        name: windows-deployment-package
+        path: "5.界面/条件较为简单+多行表/部署包/"
+        retention-days: 30
+    
+    - name: 显示构建信息
+      run: |
+        cd "5.界面/条件较为简单+多行表"
+        echo "✅ 构建完成！"
+        echo "📦 EXE文件位置: dist/AI简历初筛系统.exe"
+        if exist "dist\AI简历初筛系统.exe" (
+            dir dist\AI简历初筛系统.exe
+            echo "文件大小:"
+            for %%A in (dist\AI简历初筛系统.exe) do echo %%~zA 字节
+        )

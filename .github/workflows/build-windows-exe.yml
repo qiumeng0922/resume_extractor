@@ -19,8 +19,16 @@ jobs:
     
     - name: 禁用submodule处理
       run: |
+        # 完全禁用submodule处理
         git config --global submodule.recurse false
         git config --global --unset-all submodule.active 2>$null || echo "已清理"
+        # 删除可能存在的.gitmodules引用
+        if (Test-Path .gitmodules) {
+          Remove-Item .gitmodules -Force -ErrorAction SilentlyContinue
+        }
+        # 清理submodule缓存
+        git rm --cached -r "1.原文件/LLM_resume_filter" 2>$null || echo "已清理"
+        git rm --cached -r "7.LLM_resume_filter" 2>$null || echo "已清理"
       continue-on-error: true  # 即使失败也继续
       shell: pwsh
     

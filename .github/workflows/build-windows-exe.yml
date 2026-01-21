@@ -13,6 +13,8 @@ jobs:
     steps:
     - name: 检出代码
       uses: actions/checkout@v4
+      with:
+        submodules: false  # 禁用submodule，避免submodule配置错误
     
     - name: 设置 Python
       uses: actions/setup-python@v5

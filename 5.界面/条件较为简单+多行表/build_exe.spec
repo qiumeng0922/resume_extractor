@@ -85,6 +85,11 @@ hiddenimports = [
     # LangChain相关
     'langchain_openai',
     'langchain_openai.chat_models',
+    'langchain_core',
+    'langchain_core.language_models',
+    'langchain_core.messages',
+    'langchain_core.outputs',
+    'langchain_core.runnables',
     
     # FastAPI核心依赖
     'starlette',
@@ -102,6 +107,35 @@ hiddenimports = [
     'websockets',
     'websockets.server',
     'websockets.client',
+    
+    # FastAPI文件上传依赖
+    'python_multipart',
+    'multipart',
+    
+    # Pydantic额外依赖
+    'typing_extensions',
+    'email_validator',
+    
+    # HTTP相关
+    'httpx',
+    'httpx._client',
+    'httpx._transports',
+    'requests',  # 可能被某些库使用
+    'aiohttp',  # 异步HTTP客户端
+    'aiohttp.client',
+    'aiohttp.connector',
+    'idna',
+    'h11',
+    'h2',
+    'certifi',
+    
+    # 其他可能需要的依赖
+    'click',
+    'rich',
+    'tenacity',  # langchain可能使用
+    'yarl',  # aiohttp依赖
+    'multidict',  # aiohttp依赖
+    'async_timeout',  # aiohttp依赖
 ]
 
 # 收集所有子模块
@@ -116,6 +150,8 @@ try:
     hiddenimports.extend(collect_submodules('sniffio'))  # FastAPI依赖
     hiddenimports.extend(collect_submodules('httptools'))  # uvicorn依赖
     hiddenimports.extend(collect_submodules('websockets'))  # uvicorn依赖
+    hiddenimports.extend(collect_submodules('langchain_openai'))  # LangChain OpenAI
+    hiddenimports.extend(collect_submodules('langchain_core'))  # LangChain核心
 except:
     pass
 

@@ -15,6 +15,14 @@ jobs:
       uses: actions/checkout@v4
       with:
         submodules: false  # 禁用submodule，避免submodule配置错误
+        fetch-depth: 1  # 只获取最新提交，减少submodule处理
+    
+    - name: 禁用submodule处理
+      run: |
+        git config --global submodule.recurse false
+        git config --global --unset-all submodule.active 2>$null || echo "已清理"
+      continue-on-error: true  # 即使失败也继续
+      shell: pwsh
     
     - name: 设置 Python
       uses: actions/setup-python@v5
